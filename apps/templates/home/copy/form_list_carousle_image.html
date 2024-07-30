@@ -1,0 +1,378 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <!-- Light table -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-Training-tab" data-toggle="pill" data-target="#pills-Training" type="button" role="tab" aria-controls="pills-Training" aria-selected="true">Training</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Legal-tab" data-toggle="pill" data-target="#pills-Legal" type="button" role="tab" aria-controls="pills-Legal" aria-selected="false">Legal</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Wellfare-tab" data-toggle="pill" data-target="#pills-Wellfare" type="button" role="tab" aria-controls="pills-Wellfare" aria-selected="false">Wellfare</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Payroll-tab" data-toggle="pill" data-target="#pills-Payroll" type="button" role="tab" aria-controls="pills-Payroll" aria-selected="false">Payroll</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Attendance-tab" data-toggle="pill" data-target="#pills-Attendance" type="button" role="tab" aria-controls="pills-Attendance" aria-selected="false">Attendance</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Medical-tab" data-toggle="pill" data-target="#pills-Medical" type="button" role="tab" aria-controls="pills-Medical" aria-selected="false">Medical</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+
+                <!-- Light table Training -->
+                <div class="tab-pane fade show active" id="pills-Training" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                          {% if form.category_form == "Training" %}
+                            <tr>
+                              <td>{{ form.nama_form }}</td>
+                              <td>{{ form.fungsi_form }}</td>
+                              <td>{{ form.category_form }}</td>
+                              <td>
+                                <div class="d-flex">
+                                  <a href="{% url 'download_file' form.id %}" class="btn btn-primary mb-1">
+                                    <i class="fas fa-download"></i>
+                                  </a>
+                                  <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <form method="post" action="{% url 'form_delete' form.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">
+                                      <i class="fas fa-trash"></i>
+                                    </button>
+                                  </form>
+                                </div>
+                              </td>
+                            </tr>
+                          {% endif %}
+                        {% empty %}
+                          <tr>
+                            <td colspan="4">No forms available.</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                  
+                </div>
+
+                <!-- Light table Legal -->
+                <div class="tab-pane fade" id="pills-Legal" role="tabpanel" aria-labelledby="pills-Legal-tab">
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                        {% if form.category_form == "Legal" %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.fungsi_form }}</td>
+                          <td>{{ form.category_form }}</td>
+                          <td>
+                            <div class="d-flex">
+                              <a href="{{ form.file_upload.url }}" download class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                              <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <form method="post" action="{% url 'form_delete' form.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Light table Wellfare -->
+                <div class="tab-pane fade" id="pills-Wellfare" role="tabpanel" aria-labelledby="pills-Wellfare-tab">
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                        {% if form.category_form == "Wellfare" %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.fungsi_form }}</td>
+                          <td>{{ form.category_form }}</td>
+                          <td>
+                            <div class="d-flex">
+                              <a href="{{ form.file_upload.url }}" download class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                              <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <form method="post" action="{% url 'form_delete' form.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Light table Payroll -->
+                <div class="tab-pane fade" id="pills-Payroll" role="tabpanel" aria-labelledby="pills-Payroll-tab">
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                        {% if form.category_form == "Payroll" %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.fungsi_form }}</td>
+                          <td>{{ form.category_form }}</td>
+                          <td>
+                            <div class="d-flex">
+                              <a href="{{ form.file_upload.url }}" download class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                              <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <form method="post" action="{% url 'form_delete' form.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Light table Attendance -->
+                <div class="tab-pane fade" id="pills-Attendance" role="tabpanel" aria-labelledby="pills-Attendance-tab">
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                        {% if form.category_form == "Attendance" %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.fungsi_form }}</td>
+                          <td>{{ form.category_form }}</td>
+                          <td>
+                            <div class="d-flex">
+                              <a href="{{ form.file_upload.url }}" download class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                              <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <form method="post" action="{% url 'form_delete' form.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Light table Medical -->
+                <div class="tab-pane fade" id="pills-Medical" role="tabpanel" aria-labelledby="pills-Medical-tab">
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                        {% if form.category_form == "Medical" %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.fungsi_form }}</td>
+                          <td>{{ form.category_form }}</td>
+                          <td>
+                            <div class="d-flex">
+                              <a href="{{ form.file_upload.url }}" download class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                              <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <form method="post" action="{% url 'form_delete' form.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

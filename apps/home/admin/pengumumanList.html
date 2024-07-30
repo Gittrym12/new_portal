@@ -1,0 +1,105 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="header bg-white pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row py-4">
+        <div class="col-lg-12" style="text-align: right;">           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6 bg-white">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <h1 class="table-label text-center mt-4">PENGUMUMAN HRD</h1>
+                
+              <div class="table-responsive">
+                <!-- Filter and Search Form -->
+                <form method="get" action="{% url 'announcement_list' %}" class="row g-3">
+                  <div class="col-sm-6 pt-4">
+                    <h1 class="table-label">List Pengumuman 2023</h1>
+                  </div>
+                  <div class="col-sm-4 pt-2">
+                      <input type="text" id="searchInput" class="form-control mb-2" oninput="searchTable()" placeholder="Type to search..." name="q" value="{{ query }}">
+                  </div>
+                  <div class="col-sm-2">
+                    <a href="{% url 'announcement_list' %}" class="btn btn-warning mt-2">Search</a>
+                  </div>
+                </form>
+              <!-- End Filter and Search Form -->
+                <table class="table">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th>No</th>
+                      <th>Judul</th>
+                      <th>Tanggal</th>
+                      <th>Lihat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for pengumuman in pengumumans %}
+                        {% if pengumuman.catThn == "2023" %}
+                            <tr>
+                                <td>{{ pengumuman.catThn }}</td>
+                                <td>{{ pengumuman.nama_pengumuman }}</td>
+                                <td>{{ pengumuman.tanggal_upload }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{% url 'download_file_pengumuman' pengumuman.id %}" class="btn btn-primary mb-1" target="_blank">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                        <a href="{% url 'announcement_update' pk=pengumuman.id %}" class="btn btn-info mb-1">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form method="post" action="{% url 'announcement_delete' pk=pengumuman.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">No announcements available.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                
+                </table>
+              </div>
+                <!-- Additional Features (Edit and Filter) -->
+                <div class="d-flex mt-3">
+                  <a href="{% url 'announcement_create' %}" class="btn btn-success">
+                    <i class="fas fa-edit"></i> Create Pengumuman
+                  </a>
+                </div>
+                <!-- End Additional Features -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+</div>
+
+{% include "includes/footer.html" %}
+
+{% endblock content %}

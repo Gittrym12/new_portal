@@ -1,0 +1,119 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">
+              <!--
+              <p id="currentDate" class=h3></p>
+              <script>
+                var currentDate = new Date();
+                document.getElementById("currentDate").innerHTML = currentDate.toDateString();
+              </script>  
+              -->            
+            </div>
+          </div>
+          
+            <!--
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-primary d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Default</li>
+                </ol>
+              </nav>
+            </div>
+            -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <!-- Light table -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <!-- Light table -->
+                  <div class="table-responsive">
+                    <h1>Form List</h1>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Fungsi Form</th>
+                          <th>Category Form</th>
+                          <th>File Upload</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for form in forms %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.fungsi_form }}</td>
+                          <td>{{ form.category_form }}</td>
+                          <td>
+                            <a href="{{ form.file_upload.url }}" download>
+                              <button type="button" class="btn btn-primary">Download</button>
+                            </a>
+                          </td>
+                          
+                        </tr>
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>            
+                    <a href="{% url 'form_create' %}">Create New Form</a>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

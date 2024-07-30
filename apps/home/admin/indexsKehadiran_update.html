@@ -1,0 +1,96 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mt--6 bg-white">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1>Edit Kegiatan</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="Bulan">Bulan:</label>
+                    <select class="form-control" id="Bulan" name="Bulan" required>
+                        <option value="Januari" {% if form.Bulan.value == 'Januari' %}selected{% endif %}>Januari</option>
+                        <option value="Februari" {% if form.Bulan.value == 'Februari' %}selected{% endif %}>Februari</option>
+                        <option value="Maret" {% if form.Bulan.value == 'Maret' %}selected{% endif %}>Maret</option>
+                        <option value="April" {% if form.Bulan.value == 'April' %}selected{% endif %}>April</option>
+                        <option value="Mei" {% if form.Bulan.value == 'Mei' %}selected{% endif %}>Mei</option>
+                        <option value="Juni" {% if form.Bulan.value == 'Juni' %}selected{% endif %}>Juni</option>
+                        <option value="Juli" {% if form.Bulan.value == 'Juli' %}selected{% endif %}>Juli</option>
+                        <option value="Agustus" {% if form.Bulan.value == 'Agustus' %}selected{% endif %}>Agustus</option>
+                        <option value="September" {% if form.Bulan.value == 'September' %}selected{% endif %}>September</option>
+                        <option value="Oktober" {% if form.Bulan.value == 'Oktober' %}selected{% endif %}>Oktober</option>
+                        <option value="November" {% if form.Bulan.value == 'November' %}selected{% endif %}>November</option>
+                        <option value="Desember" {% if form.Bulan.value == 'Desember' %}selected{% endif %}>Desember</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label for="divisi">division:</label>
+                  <select class="form-control" id="divisi" name="divisi" required>
+                      <option value="YPMI" {% if form.divisi.value == 'YPMI' %}selected{% endif %}>YPMI</option>
+                      <option value="PROD_PLANNING_DELIVERY" {% if form.divisi.value == 'PROD_PLANNING_DELIVERY' %}selected{% endif %}>PROD PLANNING & DELIVERY</option>
+                      <option value="QUALITY_ASSURANCE" {% if form.divisi.value == 'QUALITY_ASSURANCE' %}selected{% endif %}>QUALITY ASSURANCE</option>
+                      <option value="STEEL_PRODUCTION" {% if form.divisi.value == 'STEEL_PRODUCTION' %}selected{% endif %}>STEEL PRODUCTION</option>
+                      <option value="STEEL_PRODUCTION_ENGINEERING" {% if form.divisi.value == 'STEEL_PRODUCTION_ENGINEERING' %}selected{% endif %}>STEEL PRODUCTION ENGINEERING</option>
+                      <option value="MAINTENANCE" {% if form.divisi.value == 'MAINTENANCE' %}selected{% endif %}>MAINTENANCE</option>
+                      <option value="INVENTORY_CONTROL" {% if form.divisi.value == 'INVENTORY_CONTROL' %}selected{% endif %}>INVENTORY CONTROL</option>
+                      <option value="FINANCE" {% if form.divisi.value == 'FINANCE' %}selected{% endif %}>FINANCE</option>
+                      <option value="PROD_STRATEGY" {% if form.divisi.value == 'PROD_STRATEGY' %}selected{% endif %}>PROD. STRATEGY</option>
+                      <option value="GENERAL_AFFAIRS" {% if form.divisi.value == 'GENERAL_AFFAIRS' %}selected{% endif %}>GENERAL AFFAIRS</option>
+                      <option value="HUMAN_RESOURCES_DEPARTMENT" {% if form.divisi.value == 'HUMAN_RESOURCES_DEPARTMENT' %}selected{% endif %}>HUMAN RESOURCES DEPARTMENT</option>
+                      <option value="ALUMINIUM_PRODUCTION" {% if form.divisi.value == 'ALUMINIUM_PRODUCTION' %}selected{% endif %}>ALUMINIUM PRODUCTION</option>
+                      <option value="BUSINESS_MANUFACTURING_DEVELOPMENT" {% if form.divisi.value == 'BUSINESS_MANUFACTURING_DEVELOPMENT' %}selected{% endif %}>BUSINESS & MANUFACTURING DEVELOPMENT</option>
+                      <option value="ALUMINIUM_PRODUCTION_ENGINEERING" {% if form.divisi.value == 'ALUMINIUM_PRODUCTION_ENGINEERING' %}selected{% endif %}>ALUMINIUM PRODUCTION ENGINEERING</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="image">Image:</label>
+                  <input type="file" class="form-control-file" value="{{ form.image.value }}" id="image" name="image" required>
+                </div>
+                <div class="form-group">
+                  <label for="tanggal">Tanggal Upload:</label>
+                  <input type="date" class="form-control" id="tanggal" value="{{ form.tanggal.value }}" name="tanggal" required>
+                </div>
+                <div class="form-group">
+                  <label for="keterangan">keterangan Upload:</label>
+                  <input type="text" class="form-control" id="keterangan" value="{{ form.keterangan.value }}" name="keterangan">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>            
+          </div>
+        </div>
+      </div>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

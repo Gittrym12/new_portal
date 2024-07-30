@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    HRD Portal - {% block title %} Yamaha Motor Parts Manufacturing Indonesia {% endblock %}
+  </title>
+
+  <!-- Favicon - loaded as static -->
+  <link rel="icon" href="/static/assets/img/brand/yamaha-logo-3870.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=DM+Sans:opsz@9..40&family=Roboto&family=Satisfy&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="/static/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="/static/assets/css/argon.css?v=1.2.0" type="text/css">
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
+    @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
+    body {
+      background: #E5E5E5;
+      background-image: url("/gray-floral.png");
+    }
+
+    #book-front {
+      color: #ffffff;
+    }
+
+    #book,
+    #book-front,
+    #book-inside {
+      height: 600px;
+    }
+
+    .wrap {
+      padding: 1.5em 2.5em;
+      height: 100%;
+    }
+
+    #book-front,
+    #book-inside {
+      width: 50%;
+      -webkit-box-shadow: 2px 2px 30px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .5);
+      -moz-box-shadow: 2px 2px 30px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .5);
+      box-shadow: 2px 2px 30px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .5);
+      position: absolute;
+      left: 50%;
+    }
+
+    #book-inside .wrap {
+      background: #FFEFEF;
+      -webkit-box-shadow: inset 2px 0 1px rgba(0, 0, 0, .05);
+      -moz-box-shadow: inset 2px 0 1px rgba(0, 0, 0, .05);
+      box-shadow: inset 2px 0 1px rgba(0, 0, 0, .05);
+    }
+
+    #book {
+      max-width: 960px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      perspective: 5000px;
+      -moz-perspective: 5000px;
+      -webkit-perspective: 5000px;
+      position: relative;
+    }
+
+    #book h1 {
+      text-align: center;
+      font-family: 'Nobile', sans-serif;
+      font-style: italic;
+      font-size: 70px;
+      text-shadow: 4px 4px 0px rgba(0, 0, 0, .15),
+        1px 1px 0 rgba(255, 200, 200, 255),
+        2px 2px 0 rgba(255, 150, 150, 255),
+        3px 3px 0 rgba(255, 125, 125, 255);
+      color: #FFF;
+    }
+
+    #book-inside {
+      font-size: 1.1em;
+      line-height: 1.4;
+      font-family: 'Nobile';
+      color: #331717;
+      font-style: italic;
+    }
+
+    p {
+      margin-top: 1em;
+      color: #331717;
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p.signed {
+      margin-top: 1.5em;
+      text-align: center;
+      font-family: 'Dancing Script', sans-serif;
+      font-size: 1.5em;
+    }
+
+    #book-front {
+      background-color: #FF5555;
+      background-image: linear-gradient(top, #FF5555 0%, #FF7777 100%);
+      background-image: -moz-linear-gradient(top, #FF5555 0%, #FF7777 100%);
+      background-image: -webkit-linear-gradient(top, #FF5555 0%, #FF7777 100%);
+      transform-origin: left;
+      -moz-transform-origin: left;
+      -webkit-transform-origin: left;
+      transition: transform 1s linear;
+      -moz-transition: -moz-transform 1s linear;
+      -webkit-transition: -webkit-transform 1s linear;
+      position: relative;
+    }
+
+    #book-front .wrap {
+      transition: background 1s linear;
+      -moz-transition: background 1s linear;
+      -webkit-transition: background 1s linear;
+    }
+
+    #book-front button {
+      position: absolute;
+      bottom: 1em;
+      right: -12px;
+      background: #F44;
+      color: #FFF;
+      font-family: 'Nobile', sans-serif;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 1.5em;
+      padding: .5em;
+      border: none;
+      cursor: pointer;
+              box-shadow: 2px 2px 3px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .4);
+        -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .4);
+      -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .4);
+    }
+
+    #book-front button:hover,
+    #book-front button:focus {
+      background: #F22;
+    }
+
+    #close {
+      display: none;
+    }
+
+    #book.open-fully #close,
+    #book-open-half #close {
+      display: inline;
+    }
+
+    #book.open-fully #open {
+      display: none;
+    }
+
+    #book.open-half #book-front,
+    #book.close-half #book-front {
+      transform: rotateY(-90deg);
+      -moz-transform: rotateY(-90deg);
+      -webkit-transform: rotateY(-90deg);
+    }
+
+    #book.open-half #book-front .wrap {
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    #book.open-fully #book-front,
+    #book.close-half #book-front {
+      background: #FFEFEF;
+    }
+
+    #book.open-fully #book-front {
+      transform: rotateY(-180deg);
+      -moz-transform: rotateY(-180deg);
+      -webkit-transform: rotateY(-180deg);
+    }
+
+    #book.open-fully #book-front .wrap {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    #book.open-fully #book-front .wrap *,
+    #book.close-half #book-front .wrap * {
+      display: none;
+    }
+
+    footer {margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <div class="main-content" id="panel">
+    
+
+    {% include "includes/navigation.html" %}
+    <div class="container">
+      <div id="book" >
+        <div id="book-inside">
+          <div class="wrap">
+            <p>Hi birthday person,</p>
+            <p>Pada hari istimewa ini, kami ingin mengucapkan selamat ulang tahun yang penuh kebahagiaan untuk anda</p>
+            <p class="signed">HRD Division</p>
+          </div>
+        </div>
+        <div id="book-front">
+          <div class="wrap">
+            <h1 class="mt-5">Happy Birthday!</h1>
+          </div>
+          <button id="open">&gt;</button>
+          <button id="close">&lt;</button>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <footer class="footer sticky-bottom bg-default">
+    <div class="row align-items-center text-center">
+      <div class="col-sm-12">
+        <a href="/" class="text-white " >Copyright HRD - PT Yamaha Motor Parts Manufacturing Indonesia</a> 
+      </div>
+    </div>
+  </footer>
+  
+
+  {% include "includes/scripts.html" %}
+
+  <script src="/static/assets/js/argon.js?v=1.2.0"></script>
+  <script>
+    (function () {
+      function $(id) {
+        return document.getElementById(id);
+      }
+
+      var book = $('book'),
+        openB = $('open'),
+        closeB = $('close'),
+        timer = null;
+
+      openB.addEventListener('click', function () {
+        book.setAttribute('class', 'open-half');
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(function () {
+          book.setAttribute('class', 'open-fully');
+          timer = null;
+        }, 1000);
+      });
+
+      closeB.addEventListener('click', function () {
+        book.setAttribute('class', 'close-half');
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(function () {
+          book.setAttribute('class', '');
+          timer = null;
+        }, 1000);
+      });
+    })();
+  </script>
+</body>
+
+
+</html>

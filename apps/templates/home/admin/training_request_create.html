@@ -1,0 +1,83 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1>FORM REQUEST TRAINING</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="judultraining">Judul Training:</label>
+                  <input type="text" class="form-control" id="judultraining" name="judultraining" required>
+                </div>
+                <div class="form-group">
+                  <label for="tanggal">Tanggal:</label>
+                  <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                </div>
+                <div class="form-group">
+                  <label for="peserta">Peserta:</label>
+                  <textarea class="form-control" id="peserta" name="peserta" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="manager">Pilih Manager:</label>
+                  <select class="form-control" id="manager" name="manager">
+                    {% for manager in managers %}
+                      <option value="{{ manager.id }}">{{ manager.username }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="approver">Pilih Approver:</label>
+                  <select class="form-control" id="approver" name="approver">
+                    {% for approver in approvers %}
+                      <option value="{{ approver.id }}">{{ approver.username }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="is_approved_manager">Approved by Manager:</label>
+                  <input type="checkbox" class="form-check-input" id="is_approved_manager" name="is_approved_manager">
+                </div>
+                <div class="form-group">
+                  <label for="is_approved_final">Approved by Final Approver:</label>
+                  <input type="checkbox" class="form-check-input" id="is_approved_final" name="is_approved_final">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>                          
+            </div>
+          </div>
+        </div>
+      </div>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+{% endblock javascripts %}

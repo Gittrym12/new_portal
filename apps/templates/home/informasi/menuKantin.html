@@ -1,0 +1,189 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Menu Kantin {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <div class="row" style="margin-bottom: 190px;">
+        <div class="col-md-12 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+			  {% if user.is_authenticated %}
+				  <div class="d-flex my-3">
+					<a href="{% url 'create_menuKantin' %}" class="btn btn-success">
+					  <i class="fas fa-edit"></i> Upload Menu
+					</a>
+				  </div>  
+              {% endif %}
+              <h1 class="header_page_label">MENU MAKAN</h1>
+              <div class="table-responsive">
+                <h1 class="table-label text-center">Menu Makan Hari ini / <span id="currentDate"></span></h1>
+                <table class="table">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th>Pilihan</th>
+                      <th>Sarapan</th>
+                      
+                      <th>Makan Siang</th>
+                      <th>Makan Malam</th>
+                      <th>Makan Tengah Malam</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Today's data -->
+                    {% for entry in today_data %}
+                    <tr>
+                      <td>{{ entry.Pilihan|safe }}</td>
+                      <td>{{ entry.Breakfast|safe }}</td>
+                      
+                      <td>{{ entry.Shift1|safe }}</td>
+                      <td>{{ entry.Shift2|safe }}</td>
+                      <td>{{ entry.Shift3|safe }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <p class="text-primary mt-2">Note* Disediakan paket untuk shift 2</p>
+              </div>
+
+              <div class="table-responsive">
+                <h1 class="table-label text-center mt-5">Menu Makan Besok / <span id="tomorrowDate"></span></h1>
+                <table class="table">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th>Pilihan</th>
+                      <th>Sarapan</th>
+                     
+                      <th>Makan Siang</th>
+                      <th>Makan Malam</th>
+                      <th>Makan Tengah Malam</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Tomorrow's data -->
+                    {% for entry in tomorrow_data %}
+                    <tr>
+                      <td>{{ entry.Pilihan|safe }}</td>
+                      <td>{{ entry.Breakfast|safe }}</td>
+                     
+                      <td>{{ entry.Shift1|safe }}</td>
+                      <td>{{ entry.Shift2|safe }}</td>
+                      <td>{{ entry.Shift3|safe }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+
+
+                <div class="table-responsive">
+                  <h1 class="table-label text-center mt-5">Nenu Makan Sehat<span id="tomorrowDate"></span></h1>
+                  <table class="table">
+                    <thead class="table-head-bg">
+                      <tr>
+                        <th>Makan Siang</th>
+                        <th>Pilihan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Pilihan 1</td>
+                        <td>Nasi PutihSup Egg drop sayuran (isian : wortel, telur, ayam suwir, buncis)Tahu masak kecap (tidak minyak)Perkedel kentang panggang (tidak minyak)Sambal bawang tomat kukus (tidak minyak)Pisang</td>
+                      </tr>
+                      <tr>
+                        <td>Pilihan 2</td>
+                        <td>Nasi PutihPepes ayam pedas (tidak minyak)Bening bayam jagung manis (tidak minyak)Bacem tahu tidak digoreng (tidak minyak)Sambal bawang tomat kukusMelon (2 pcs)--> Pengganti kerupuk & pendamping 1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+
+                <p class="text-primary mt-2">Note* Disediakan paket untuk shift 2</p>
+              </div>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="table-responsive">
+              <h1 class="table-label text-center mt-5">Menu Makan Hari ini / <span id="currentDate"></span></h1>
+              <table class="table">
+                <thead class="table-head-bg">
+                  <tr>
+                    <th>Nama File</th>
+                    <th>Uploaded At</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Today's data -->
+                  {% for menu in menus %}
+                  <tr>
+                    <td>{{ menu.nama_file }}</td>
+                    <td>{{ menu.uploaded_at }}</td>
+                    <td>
+                      <form method="post" action="{% url 'delete_menuKantin' menu.id %}">
+                          {% csrf_token %}
+                          <button type="submit" class="btn btn-danger">
+                              <i class="fas fa-trash"></i> Delete
+                          </button>
+                      </form>
+                  </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <p class="text-primary mt-2">Note* Disediakan paket untuk shift 2</p>
+            </div>
+            {% endif %}
+            
+            <script>
+              var currentDateElement = document.getElementById("currentDate");
+              var today = new Date();
+              var options = { day: 'numeric', month: 'long', year: 'numeric' };
+              var dateLocale = today.toLocaleDateString('id-ID', options); 
+              currentDateElement.textContent = dateLocale;
+
+              var tomorrowDateElement = document.getElementById("tomorrowDate");
+              var tomorrow = new Date();
+              tomorrow.setDate(tomorrow.getDate() + 1); // Set tomorrow's date
+              var options = { day: 'numeric', month: 'long', year: 'numeric' };
+              var dateLocale = tomorrow.toLocaleDateString('id-ID', options);
+              tomorrowDateElement.textContent = dateLocale;
+            </script>
+          </div>
+        </div>
+      </div>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}
+l>

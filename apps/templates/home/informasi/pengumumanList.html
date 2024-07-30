@@ -1,0 +1,218 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Pengumuman HRD {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto" style="margin-bottom: 150px;">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1 class="header_page_label">PENGUMUMAN HRD</h1>
+              {% if user.is_authenticated %}
+              <div class="d-flex my-3">
+                <a href="{% url 'pengumuman_create' %}" class="btn btn-success">
+                  <i class="fas fa-edit"></i> Create Pengumuman
+                </a>
+              </div>  
+              {% endif %}
+              <!-- Light table -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-3-tab" data-toggle="pill" data-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="true">2022</button>
+                </li>
+                
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="pills-1-tab" data-toggle="pill" data-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">2023</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="pills-2-tab" data-toggle="pill" data-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="true">2022</button>
+                </li>
+                
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+
+                <!-- Light table Plant 1 -->
+                <div class="tab-pane fade show active" id="pills-3" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="table-responsive">
+                    <table class="table">
+                        <thead class="table-head-bg">
+                            <tr>
+                                <th>Judul</th>
+                                <th>Tanggal Terbit</th>
+                                <th>Lihat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pengumuman in pengumumans %}
+                                {% if pengumuman.tahun == "2024" %}
+                                    <tr>
+                                        <td>{{ pengumuman.nama_pengumuman }}</td>
+                                        <td>{{ pengumuman.tanggal_upload }}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{% url 'download_file_pengumuman' pengumuman.id %}" class="btn btn-primary mb-1">
+                                                    <i class="fas fa-download"></i> Download
+                                                </a>
+                                                {% if user.is_authenticated %}
+                                                    <a href="{% url 'pengumuman_update' pengumuman.id %}" class="btn btn-info mb-1">
+                                                        <i class="fas fa-edit"></i> Update
+                                                    </a>
+                                                    <form method="post" action="{% url 'pengumuman_delete' pengumuman.id %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fas fa-trash"></i> Delete
+                                                        </button>
+                                                    </form>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3">No forms available.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Light table Plant 1 -->
+                <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="table-responsive">
+                    <table class="table">
+                        <thead class="table-head-bg">
+                            <tr>
+                                <th>Judul</th>
+                                <th>Tanggal Terbit</th>
+                                <th>Lihat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pengumuman in pengumumans %}
+                                {% if pengumuman.tahun == "2023" %}
+                                    <tr>
+                                        <td>{{ pengumuman.nama_pengumuman }}</td>
+                                        <td>{{ pengumuman.tanggal_upload }}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{% url 'download_file_pengumuman' pengumuman.id %}" class="btn btn-primary mb-1">
+                                                    <i class="fas fa-download"></i> Download
+                                                </a>
+                                                {% if user.is_authenticated %}
+                                                    <a href="{% url 'pengumuman_update' pengumuman.id %}" class="btn btn-info mb-1">
+                                                        <i class="fas fa-edit"></i> Update
+                                                    </a>
+                                                    <form method="post" action="{% url 'pengumuman_delete' pengumuman.id %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fas fa-trash"></i> Delete
+                                                        </button>
+                                                    </form>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3">No forms available.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                </div>
+
+                <!-- Light plant 2 -->
+                <div class="tab-pane fade show " id="pills-2" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="table-responsive">
+                    <table class="table">
+                        <thead class="table-head-bg">
+                            <tr>
+                                <th>Judul</th>
+                                <th>Tanggal</th>
+                                <th>Lihat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pengumuman in pengumumans %}
+                                {% if pengumuman.tahun == "2022"%}
+                                    <tr>
+                                        <td>{{ pengumuman.nama_pengumuman }}</td>
+                                        <td>{{ pengumuman.tanggal_upload }}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{% url 'download_file_pengumuman' pengumuman.id %}" class="btn btn-primary mb-1">
+                                                    <i class="fas fa-download"></i> Download
+                                                </a>
+                                                {% if user.is_authenticated %}
+                                                    {% with update_url='pengumuman_update' pengumuman_id=pengumuman.id %}
+                                                        <a href="{% url update_url pengumuman_id %}" class="btn btn-info mb-1">
+                                                            <i class="fas fa-edit"></i> Update
+                                                        </a>
+                                                    {% endwith %}
+                                                    <form method="post" action="{% url 'pengumuman_delete' pengumuman.id %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fas fa-trash"></i> Delete
+                                                        </button>
+                                                    </form>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3">No forms available.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

@@ -1,0 +1,99 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Data Ulang Tahun {% endblock title %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+  <!-- Header -->
+  <div class="header bg-white ">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row py-4">
+          <div class="col-lg-12" style="text-align: right;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="wrapper1">
+    <div id="container1" style="color: black;">
+        <section class="open-book">
+            <article>
+              <!-- KIRI -->
+              <p id="ucapanUlangTahun" class="text-quote">
+                Pada hari yang istimewa ini <br><span id="tanggalHariIni"></span><br>Kami mengucapkan:
+              </p>
+                <h2 class="chapter-title text-lg">Selamat Ulang Tahun</h2>
+                <p></p>
+                <dl class="my-5 py-4">
+                  <dt><strong>Kepada yang berbahagia:</strong></dt>
+                  {% for entry in data %}
+                  <p class="text-dark ml-5 text-sm my-2"><span style="font-weight: bold;">{{ entry.Name }}</span> ({{ entry.Section }})</p class="text-list-emp">
+                  {% endfor %}
+                </dl>
+                <hr style="margin-top: 300px; margin-bottom: 300px;">
+                <p id="ucapanUlangTahun" class="text-quote">
+                  Semoga Allah SWT senantiasa menganugerahkan Kesehatan, kesuksesan, dan Kebahagiaan. Aamiin
+                </p>
+                
+                
+                <p class="text-sign mt-5 mb-5">
+                  -- HRD Division --
+                </p>
+
+            </article>
+        </section>
+    </div>
+</div>
+
+<!-- Audio element for background music -->
+<audio id="backgroundMusic" autoplay loop>
+  <source src="{% static 'assets/vid/yt1scom-selamat-ulang-tahun-jamrud_e3jh6hGd.mp3' %}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+{% include "includes/footer.html" %}
+  
+
+  
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+
+<script>
+  // Mendapatkan elemen span yang menampilkan tanggal hari ini
+  var tanggalSpan = document.getElementById("tanggalHariIni");
+
+  // Mendapatkan tanggal hari ini
+  var today = new Date();
+
+  // Array untuk menyimpan nama bulan
+  var namaBulan = [
+      "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+      "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+  ];
+
+  // Array untuk menyimpan nama hari
+  var namaHari = [
+    "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"
+  ];
+
+  // Mendapatkan day, month, dan year
+  var day = today.getDate();
+  var month = today.getMonth(); // Tanpa ditambah 1 karena array namaBulan dimulai dari indeks 0
+  var year = today.getFullYear();
+  var dayOfWeek = today.getDay(); // Mendapatkan indeks hari dalam seminggu
+
+  // Format tanggal sesuai dengan "dd-mm-yyyy"
+  var formattedDate = (day < 10 ? '0' : '') + day + '-' + (month < 9 ? '0' : '') + (month + 1) + '-' + year;
+
+  // Menetapkan tanggal dan nama hari ke dalam elemen span
+  tanggalSpan.innerHTML = namaHari[dayOfWeek] + ', ' + formattedDate.replace(/-(\d{2})-/, function(match, p1) {
+      return '-' + namaBulan[parseInt(p1, 10) - 1] + '-';
+  });
+</script>
+
+{% endblock javascripts %}

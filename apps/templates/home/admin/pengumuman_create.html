@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row py-4">
+                    <div class="col-lg-12" style="text-align: right;">           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="card card-stats">
+                    <div class="card-body">
+                        <h1>Pengumuman</h1>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                              <label for="nama_pengumuman">Nama Pengumuman:</label>
+                              <input type="text" class="form-control" id="nama_pengumuman" name="nama_pengumuman" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="tanggal_upload">Tanggal Upload:</label>
+                              <input type="date" class="form-control" id="tanggal_upload" name="tanggal_upload" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="tahun">Tahun:</label>
+                              <select class="form-control" id="tahun" name="tahun" required>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2023">2024</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="file_pengumuman">File Upload:</label>
+                              <input type="file" class="form-control-file" id="file_pengumuman" name="file_pengumuman" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>           
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+

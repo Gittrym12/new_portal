@@ -1,0 +1,238 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Komite {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto" style="margin-bottom: 150px;">
+          <div class="card card-stats">
+            <div class="card-body">
+              <!-- Light table -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-Satgasppks-tab" data-toggle="pill" data-target="#pills-Satgasppks" type="button" role="tab" aria-controls="pills-Satgasppks" aria-selected="true">Satuan Tugas PPKS</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="pills-lksbipartit-tab" data-toggle="pill" data-target="#pills-lksbipartit" type="button" role="tab" aria-controls="pills-lksbipartit" aria-selected="true">LKS Bipartit</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-komiteolahraga-tab" data-toggle="pill" data-target="#pills-komiteolahraga" type="button" role="tab" aria-controls="pills-komiteolahraga" aria-selected="false">Komite Olahraga</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+
+                <!-- Satgasppks -->
+                <div class="tab-pane fade show active" id="pills-Satgasppks" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <!-- #################################  JUDUL  #################################### -->
+                  <div class="row pt-5">
+                    <div class="col-md-12 mx-auto">
+                      <h1 class="table-label text-center">STRUKTUR SATUAN TUGAS <br>
+                        PENCEGAHAN DAN PENANGANAN KEKERASAN SEKSUAL (PPKS) DI TEMPAT KERJA <br>
+                        PT.YAMAHA MOTOR PARTS MANUFACTURING INDONESIA (YPMI)</h1>
+                    </div>
+                  </div>
+
+                  <!-- #################################  STRUKTUR SATGAS  #################################### -->
+                  <div class="row pt-5">
+                    <div class="col-md-12 mx-auto">
+                      <div id="modalSOSatgasPPKSPTYPMI" data-toggle="modal" data-target="#exampleSOSatgasPPKSPTYPMI">
+                        <img class="d-md-block w-100 mt--3" src="/static/assets/img/theme/satgasppks.png" alt="First slide">
+                      </div>
+                      <div class="modal fade" id="exampleSOSatgasPPKSPTYPMI" tabindex="-1" aria-labelledby="exampleSOSatgasPPKSPTYPMIlabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center"> <!-- Center the content horizontally -->
+                              <div class="d-flex justify-content-center align-items-center h-100">
+                                <!-- Center the image both horizontally and vertically -->
+                                <img src="/static/assets/img/theme/satgasppks.png" class="img-fluid mt--4" alt="Image preview" style="max-width: 100%; max-height: 150vh;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- #################################  FLAG  #################################### -->
+                  <div class="row pt-5 PB-5">
+                    <div class="col-md-5 mx-auto">
+                      <div id="modalPPKS" data-toggle="modal" data-target="#examplePPKS">
+                        <img class="d-md-block w-100 mt--3" src="/static/assets/img/theme/PPKS-No-Tlp.jpg" alt="First slide">
+                      </div>
+                      <div class="modal fade" id="examplePPKS" tabindex="-1" aria-labelledby="examplePPKSlabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center"> <!-- Center the content horizontally -->
+                              <div class="d-flex justify-content-center align-items-center h-100">
+                                <!-- Center the image both horizontally and vertically -->
+                                <img src="/static/assets/img/theme/PPKS-No-Tlp.jpg" class="img-fluid mt--4" alt="Image preview" style="max-width: 100%; max-height: 150vh;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-5 mx-auto">
+                      <div id="modalSOPPKS" data-toggle="modal" data-target="#exampleSOPPKS">
+                        <img class="d-md-block w-100 mt--3" src="/static/assets/img/theme/PPKS- General-Information.jpg" alt="First slide">
+                      </div>
+                      <div class="modal fade" id="exampleSOPPKS" tabindex="-1" aria-labelledby="exampleSOPPKSlabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center"> <!-- Center the content horizontally -->
+                              <div class="d-flex justify-content-center align-items-center h-100">
+                                <!-- Center the image both horizontally and vertically -->
+                                <img src="/static/assets/img/theme/PPKS- General-Information.jpg" class="img-fluid mt--4" alt="Image preview" style="max-width: 100%; max-height: 150vh;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- lksbipartit -->
+                <div class="tab-pane fade show " id="pills-lksbipartit" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <!-- #################################  JUDUL  #################################### -->
+                  <div class="row pt-5">
+                    <div class="col-md-12 mx-auto">
+                      <h1 class="table-label text-center">Lembaga Kerja Sama (LKS) Bipartit											
+                         <br>
+                        PT.YAMAHA MOTOR PARTS MANUFACTURING INDONESIA (YPMI)</h1>
+                    </div>
+                  </div>
+
+                  <!-- #################################  STRUKTUR SATGAS  #################################### -->
+                  <div class="row pt-5 mb-5">
+                    <div class="col-md-6 mx-auto">
+                      <div id="modallksbipartit" data-toggle="modal" data-target="#examplelksbipartit">
+                        <img class="d-md-block w-100  mt--3" src="/static/assets/img/theme/lksbipartit1.png" alt="First slide">
+                      </div>
+                      <div class="modal fade" id="examplelksbipartit" tabindex="-1" aria-labelledby="examplelksbipartitlabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center"> <!-- Center the content horizontally -->
+                              <div class="d-flex justify-content-center align-items-center h-100">
+                                <!-- Center the image both horizontally and vertically -->
+                                <img src="/static/assets/img/theme/lksbipartit1.png" class="img-fluid mt--4" alt="Image preview" style="max-width: 100%; max-height: 150vh;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pt-5 PB-5">
+                    <div class="col-md-8 mx-auto">
+                      <h2 class="text-dark">LKS Bipartit :</h2>
+                      <p class="text-dark">										
+                        Merupakan forum komunikasi dan konsultasi antara pengusaha dengan wakil serikat pekerja dan wakil pekerja dalam rangka pengembangan hubungan industrial untuk kelangsungan hidup, pertumbuhan dan perkembangan perusahaan dan kesejahteraan pekerja.
+                        </p>
+                        <h2 class="text-dark">Tugas LKS Bipartit:</h2>
+                        <ul class="text-dark" style="list-style-type: lower-alpha; ">
+                          <li>Melakukan pertemuan secara periodik dan/atau sewaktu-waktu apabila diperlukan.</li>
+                          <li>Mengkomunikasikan kebijakan pengusaha dan aspirasi pekerja dalam rangka mencegah terjadinya permasalahan hubungan industrial di perusahaan.</li>
+                          <li>Menyampaikan saran, pertimbangan, dan pendapat kepada pengusaha, pekerja, dan/atau serikat pekerja dalam rangka penetapan dan pelaksanaan kebijakan perusahaan.</li>
+                        </ul>
+                        
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <!-- komiteolahraga -->
+                <div class="tab-pane fade show " id="pills-komiteolahraga" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <!-- #################################  JUDUL  #################################### -->
+                  <div class="row pt-5">
+                    <div class="col-md-12 mx-auto">
+                      <h1 class="table-label text-center">KOMITE OLAHRAGA <br>
+                        PT.YAMAHA MOTOR PARTS MANUFACTURING INDONESIA (YPMI)</h1>
+                    </div>
+                  </div> 
+
+                  <!-- #################################  STRUKTUR SATGAS  #################################### -->
+                  <div class="row pt-5">
+                    <div class="col-md-12 mx-auto">
+                      <div id="modalkomiteolahraga" data-toggle="modal" data-target="#examplekomiteolahraga">
+                        <img class="d-md-block w-100 mt--3" src="/static/assets/img/theme/strukturolahraga.png" alt="First slide">
+                      </div>
+                      <div class="modal fade" id="examplekomiteolahraga" tabindex="-1" aria-labelledby="examplekomiteolahragalabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center"> <!-- Center the content horizontally -->
+                              <div class="d-flex justify-content-center align-items-center h-100">
+                                <!-- Center the image both horizontally and vertically -->
+                                <img src="/static/assets/img/theme/strukturolahraga.png" class="img-fluid mt--4" alt="Image preview" style="max-width: 100%; max-height: 150vh;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

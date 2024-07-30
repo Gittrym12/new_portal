@@ -1,0 +1,143 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row py-4">
+                    <div class="col-lg-12" style="text-align: right;">           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+        <row>
+            <div class="col-md-10 mx-auto">
+                <div class="card card-stats">
+                    <div class="card-body">
+                        <h1 class="table-label text-center mt-5">GRAFIK KEHADIRAN YPMI 2023</h1>
+                        <div class="row">
+                            <canvas id="myChart" height="500" width="500"></canvas>
+                        </div>
+                    
+                        <!-- Bootstrap Table -->
+                        <div class="table-responsive mt-5">
+                            <table class="table">
+                                <thead class="table-head-bg">
+                                    <tr>
+                                        <th>Bulan</th>
+                                        <th>Indexs</th>
+                                        <th>Divisi Tertinggi</th>
+                                        <th>Prosentase</th>
+                                        <th>Divisi Terendah</th>
+                                        <th>Prosentase</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for dp in data_points %}
+                                        <tr>
+                                            <td>{{ dp.bulan }}</td>
+                                            <td>{{ dp.indexs }}</td>
+                                            <td>{{ dp.tertinggiLabel }}</td>
+                                            <td>{{ dp.tertinggiValue }}</td>
+                                            <td>{{ dp.terendahLabel }}</td>
+                                            <td>{{ dp.terendahValue }}</td>
+                                            
+                                            
+                                        </tr>
+                                    {% empty %}
+                                        <tr>
+                                            <td colspan="7">No Data available.</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- End Bootstrap Table -->
+                    
+                    </div>
+                    
+                </div>
+            </div>
+        </row>
+        <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+{% block javascripts %}
+    <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var data = {{ data|safe }};
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.labels,  // Assuming data.labels contains month names
+                datasets: [{
+                    label: 'Indeks Kehadiran',
+                    data: data.indexs,
+                    backgroundColor: 'rgba(0, 82, 239, 0.8)',
+                    borderColor: 'rgba(0, 82, 239, 0.8)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                plugins: {
+                    annotation: {
+                        items: [{
+                            type: 'line',
+                            borderColor: 'black',
+                            borderWidth: 3,
+                            scaleID: 'y',
+                            value: 95
+                        }]
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        position: 'left',
+                        ticks: {
+                            callback: function (data) {
+                                return data + ' %';
+                            },
+                            min: 90,
+                            max: 100,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Prosentase Kehadiran',
+                            fontSize: 16,
+                        },
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Bulan',
+                            fontSize: 16,
+                        },
+                    }],
+                },
+            }
+        });
+    </script>
+    
+{% endblock javascripts %}

@@ -1,0 +1,96 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <!-- Light table Recruitment -->
+              <div class="tab-pane fade show active" id="pills-Recruitment" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="table-responsive">
+                    <h1 class="table-label">List file menu kantin</h1>
+                    <table class="table">
+                        <thead class="table-head-bg">
+                            <tr>
+                                <th>NO</th>
+                                <th>Nama File</th>
+                                <th>Tanggal Upload</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for menu_item in menu_items %}
+                            <tr>
+                                <td>{{ forloop.counter0|add:1 }}</td>
+                                <td>{{ menu_item.nama_file }}</td>
+                                <td>{{ menu_item.uploaded_at }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ menu_item.file.url }}" class="btn btn-primary mb-1">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="{% url 'form_update' menu_item.id %}" class="btn btn-info mb-1">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form method="post" action="{% url 'delete_menuKantin' menu_item.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3">No menu items available.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <a href="{% url 'create_menuKantin' %}" class="btn btn-success mt-3">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

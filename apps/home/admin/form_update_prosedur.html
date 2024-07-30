@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt--6 bg-white">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1>Edit Form</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="nama_prosedur">Nama Prosedur:</label>
+                  <input type="text" class="form-control" id="nama_prosedur" name="nama_prosedur" value="{{ form.nama_prosedur.value }}" required placeholder="{{ form.nama_form.value }}">
+                </div>
+                <div class="form-group">
+                  <label for="no_prosedur">No SOP:</label>
+                  <input type="text" class="form-control" id="no_prosedur" name="no_prosedur" value="{{ form.no_prosedur.value }}" required>
+                </div>
+                <div class="form-group">
+                  <label for="file_upload_prosedur">File Upload:</label>
+                  <input type="file" class="form-control-file" id="file_upload_prosedur" name="file_upload_prosedur" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>           
+            </div>            
+          </div>
+        </div>
+      </div>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

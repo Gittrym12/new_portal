@@ -1,0 +1,77 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Indeks Kehadiran {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1 class="header_page_label">GRAFIK KEHADIRAN YPMI 2023</h1>
+              <div class="col-md-12 mx-auto">
+                <img src="{% static 'assets/img/theme/kehadiran/GRAFIKDES23.png' %}" alt="" class="img-fluid ">
+              </div>
+              <div class="col-md-12 mx-auto mt-5">
+                <img src="{% static 'assets/img/theme/kehadiran/grafikdivisi23.png' %}" alt="" class="img-fluid ">
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+
+
+
+
+YPMI
+PROD_PLANNING_DELIVERY
+QUALITY_ASSURANCE
+STEEL_PRODUCTION
+STEEL_PRODUCTION_ENGINEERING
+MAINTENANCE
+INVENTORY_CONTROL
+FINANCE
+PROD_STRATEGY
+GENERAL_AFFAIRS
+HUMAN_RESOURCES_DEPARTMENT
+ALUMINIUM_PRODUCTION
+BUSINESS_MANUFACTURING_DEVELOPMENT
+ALUMINIUM_PRODUCTION_ENGINEERING

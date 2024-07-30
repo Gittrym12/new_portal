@@ -1,0 +1,10 @@
+{
+    "name": "HRD PORTAL",
+    "mastertemplate": "boilerplate-code-django-dashboard",
+    "version": "1.0.2",
+    "description": "Template project - Django Boilerplate Code ",
+    "scripts": {},
+	
+    "dependencies": {},
+    "devDependencies": {}
+}

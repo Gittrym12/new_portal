@@ -1,0 +1,133 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="header bg-white pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row py-4">
+        <div class="col-lg-12" style="text-align: right;">           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="container-fluid mt--6 bg-white">
+  <row>
+    <div class="col-md-10 mx-auto">
+      <div class="card card-stats">
+        <div class="card-body">
+          <h1>Jadwal Training</h1>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="judulTraining">Judul Training:</label>
+              <input type="text" class="form-control" id="judulTraining" name="judulTraining" required>
+            </div>
+            <div class="form-group">
+              <label for="trainingCat">Kategori Training:</label>
+              <select class="form-control" id="trainingCat" name="trainingCat">
+                  <option value="Category1">Internal</option>
+                  <option value="Category2">Eksterenal</option>
+                  <option value="Category3">GTC</option>
+                  <!-- Add more options as needed -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="planPeserta1">Plan Peserta 1:</label>
+              <input type="number" class="form-control" id="planPeserta1" name="planPeserta1" >
+            </div>
+            <div class="form-group">
+              <label for="planPeserta2">Plan Peserta 2:</label>
+              <input type="number" class="form-control" id="planPeserta2" name="planPeserta2" >
+            </div>
+            <div class="form-group">
+              <label for="planPeserta3">Plan Peserta 3:</label>
+              <input type="number" class="form-control" id="planPeserta3" name="planPeserta3" >
+            </div>
+            <div class="form-group">
+              <label for="planPeserta4">Plan Peserta 4:</label>
+              <input type="number" class="form-control" id="planPeserta4" name="planPeserta4" >
+            </div>
+            <!-- Add fields for actual participants -->
+            <div class="form-group">
+              <label for="actPeserta1">Actual Peserta 1:</label>
+              <input type="number" class="form-control" id="actPeserta1" name="actPeserta1" >
+            </div>
+            <div class="form-group">
+              <label for="actPeserta2">Actual Peserta 2:</label>
+              <input type="number" class="form-control" id="actPeserta2" name="actPeserta2" >
+            </div>
+            <div class="form-group">
+              <label for="actPeserta3">Actual Peserta 3:</label>
+              <input type="number" class="form-control" id="actPeserta3" name="actPeserta3" >
+            </div>
+            <div class="form-group">
+              <label for="actPeserta4">Actual Peserta 4:</label>
+              <input type="number" class="form-control" id="actPeserta4" name="actPeserta4" >
+            </div>
+            <!-- Remaining fields -->
+            <div class="form-group">
+              <label for="durasiJam">Durasi (Jam):</label>
+              <input type="text" class="form-control" id="durasiJam" name="durasiJam" required>
+            </div>
+            <div class="form-group">
+              <label for="durasiHari">Durasi (Hari):</label>
+              <input type="text" class="form-control" id="durasiHari" name="durasiHari" required>
+            </div>
+
+            <!-- Remaining fields -->
+            <div class="form-group">
+              <label for="pesertaRole">Peserta Role:</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaOP" name="pesertaOP" value="O">
+                <label class="form-check-label" for="pesertaOP">OP</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaLDR" name="pesertaLDR" value="O">
+                <label class="form-check-label" for="pesertaLDR">LDR</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaFR" name="pesertaFR" value="O">
+                <label class="form-check-label" for="pesertaFR">FR</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaSTAFF" name="pesertaSTAFF" value="O">
+                <label class="form-check-label" for="pesertaSTAFF">STf</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaGF" name="pesertaGF" value="O">
+                <label class="form-check-label" for="pesertaGF">GF</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaSPV" name="pesertaSPV" value="O">
+                <label class="form-check-label" for="pesertaSPV">SPV</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pesertaMNG" name="pesertaMNG" value="O">
+                <label class="form-check-label" for="pesertaMNG">MNG</label>
+              </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>                                    
+        </div>
+      </div>
+    </div>
+  </row>
+  <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+</div>
+{% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 

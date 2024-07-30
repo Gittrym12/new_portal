@@ -1,0 +1,131 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Details {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+    
+    <!-- Page content -->
+    <div class="container-fluid mt-6 bg-white" style="margin-bottom:20em;">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <!-- model_detail.html -->
+            <div class="card-body">
+              <h2 class="text-dark">
+                {% if model_type == 'formmodel' %}
+                  Detail Form
+                {% elif model_type == 'prosedur' %}
+                  Detail Prosedur
+                {% elif model_type == 'pengumuman' %}
+                  Detail Pengumuman
+                {% elif model_type == 'aturan' %}
+                  Detail Aturan
+                {% else %}
+                  Detail Unknown
+                {% endif %}
+              </h2>
+              
+              <table class="table">
+                  <tbody>
+                    {% if model_type == "formmodel" %}
+                      <tr>
+                          <th class="table-head-bg" scope="row">Nama Form</th>
+                          <td class="td-row-custom">{{ instance.nama_form }}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row" class="table-head-bg">No Form</th>
+                          <td class="td-row-custom">{{ instance.no_form }}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row" class="table-head-bg">Category Form</th>
+                          <td class="td-row-custom">{{ instance.category_form }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-head-bg">Download file</th>
+                        <td class="td-row-custom">
+                            <div class="d-flex">
+                                <a href="{% url 'download_file' instance.id %}" class="btn btn-primary mb-1">
+                                    <i class="fas fa-download"></i> Download File
+                                </a>
+                            </div>
+                        </td>
+                      </tr>
+
+                      {% elif model_type == "prosedur" %}
+                          <tr>
+                              <th class="table-head-bg" scope="row">Nama Prosedur</th>
+                              <td class="td-row-custom">{{ instance.nama_prosedur }}</td>
+                          </tr>
+                          <tr>
+                              <th scope="row" class="table-head-bg">Category Prosedur</th>
+                              <td class="td-row-custom">{{ instance.category_prosedur }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="table-head-bg">Download file</th>
+                            <td class="td-row-custom">
+                                <div class="d-flex">
+                                    <a href="{% url 'download_file_prosedur' instance.id %}" class="btn btn-primary mb-1">
+                                        <i class="fas fa-download"></i> Download File
+                                    </a>
+                                </div>
+                            </td>
+                          </tr>
+                      {% elif model_type == "pengumuman" %}
+                          <tr>
+                            <th class="table-head-bg" scope="row">Nama Pengumuman</th>
+                            <td class="td-row-custom">{{ instance.nama_pengumuman }}</td>
+                          </tr>
+                          <tr>
+                              <th scope="row" class="table-head-bg">Tanggal Terbit</th>
+                              <td class="td-row-custom">{{ instance.tanggal_upload }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="table-head-bg">Download file</th>
+                            <td class="td-row-custom">
+                                <div class="d-flex">
+                                    <a href="{% url 'download_file_pengumuman' instance.id %}" class="btn btn-primary mb-1">
+                                        <i class="fas fa-download"></i> Download File
+                                    </a>
+                                </div>
+                            </td>
+                          </tr>
+                      {% elif model_type == "aturan" %}
+                          <tr>
+                            <th class="table-head-bg" scope="row">Nama Aturan</th>
+                            <td class="td-row-custom">{{ instance.title }}</td>
+                          </tr>
+                          <tr>
+                              <th scope="row" class="table-head-bg">Deskripsi</th>
+                              <td class="td-row-custom">{{ instance.description }}</td>
+                          </tr>
+                          <tr>
+                              <th scope="row" class="table-head-bg">Category Aturan</th>
+                              <td class="td-row-custom">{{ instance.div_cat }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="table-head-bg">Download file</th>
+                            <td class="td-row-custom">
+                                <div class="d-flex">
+                                    <a href="{% url 'aturan_download' instance.id %}" class="btn btn-primary mb-1">
+                                        <i class="fas fa-download"></i> Download File
+                                    </a>
+                                </div>
+                            </td>
+                          </tr>
+                      {% endif %}
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}

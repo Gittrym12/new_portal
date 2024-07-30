@@ -1,0 +1,102 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Formulir {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Page content -->
+    <div class="container-fluid mt-5 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1 class="header_page_label">FORMULIR HRD</h1>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'form_create' %}" class="btn btn-success mt-3 mb-3">
+                        <i class="fas fa-edit">Createa Form</i>
+                    </a>
+                {% endif %} 
+                
+                <div class="table-responsive">
+                  <table class="table" id="formsTable">
+                    <thead class="table-head-bg">
+                      <tr>
+                        <th data-sortable="true" onclick="sortTable(1)">Nama Form</th>
+                        <th data-sortable="true" onclick="sortTable(2)">No Form</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for form in forms %}
+                        <tr>
+                          <td>{{ form.nama_form }}</td>
+                          <td>{{ form.no_form }}</td>
+                          {% if user.is_authenticated %}
+                          <td>
+                            <div class="d-flex">
+                              <a href="{% url 'download_file' form.id %}" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                              <a href="{% url 'form_update' form.id %}" class="btn btn-info mb-1">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <form method="post" action="{% url 'form_delete' form.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </td>
+                          {% else %}
+                          <td>
+                            <div class="d-flex">
+                              <a href="{% url 'download_file' form.id %}" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                          {% endif %}
+                        </tr>
+                      {% empty %}
+                        <tr>
+                          <td colspan="4">No forms available.</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  
+                </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+                
+<script src="{% static 'assets/js/datatables.min.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    var dataTable = $('#formsTable').DataTable();
+
+    // Remove DataTables search input and label
+    $('#formsTable_filter').remove();
+  });
+</script>
+
+{% endblock javascripts %}
+
+
+
+
+

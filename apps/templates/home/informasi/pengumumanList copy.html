@@ -1,0 +1,119 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 mx-auto"><h1 class="table-label text-center">Pengumuman HRD</h1></div>
+                <!-------------------- TABLE BUS PLANT 1 -------------------->
+                <!--
+                <a href="{% url 'pengumuman_create' %}" class="btn btn-success mt-3">
+                  <i class="fas fa-edit"></i>
+                </a>-->
+
+                <div class="table-responsive">
+                    <h1 class="table-label">List Pengumuman</h1>
+                    <table class="table">
+                        <thead class="table-head-bg">  <!-- Define the 'table-head-bg' class in your CSS -->
+                            <tr>
+                                <th>No</th>
+                                <th>Judul</th>
+                                <th>Tanggal</th>
+                                <th>Lihat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>001</td>
+                            <td>Penyesuaian Jadwal keberangkatan bus khusus setiap hari senin shift 3 & 1 per 23 Jan '23</td>
+                            <td>23 Januari 2023</td>
+                            <td>
+                              <a href="/static/assets/1. JAN/001 Pengumuman Penyesuaian Jadwal keberangkatan bus khusus setiap hari senin shift 3 & 1 per 23 Jan '23.pdf" class="btn btn-primary" target="_blank">Lihat</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>002</td>
+                            <td>Informasi Tanggal 23 Januari 2023 sebagai Hari Kerja</td>
+                            <td>23 Januari 2023</td>
+                            <td>
+                              <a href="/static/assets/1. JAN/002 Pengumuman Informasi Tanggal 23 Januari 2023 sebagai Hari Kerja.pdf" class="btn btn-primary" target="_blank">Lihat</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>003</td>
+                            <td>Penundaan Penerapan Peninjauan Upah Pokok Tahun 2023</td>
+                            <td>23 Januari 2023</td>
+                            <td>
+                              <a href="/static/assets/1. JAN/003 Pengumuman Penundaan Penerapan Peninjauan Upah Pokok Tahun 2023.pdf" class="btn btn-primary" target="_blank">Lihat</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>004</td>
+                            <td>Pengumuman Perubahan Struktur Organisasi efektif per 1 Januari 2023</td>
+                            <td>23 Januari 2023</td>
+                            <td>
+                              <a href="/static/assets/1. JAN/Pengumuman Perubahan Struktur Organisasi efektif per 1 Januari 2023.pdf" class="btn btn-primary" target="_blank">Lihat</a>
+                            </td>
+                          </tr>
+                          <!--
+                            {% for pengumuman in pengumumans %} 
+                            <tr>
+                                <td>{{ pengumuman.no_pengumuman }}</td>
+                                <td>{{ pengumuman.nama_pengumuman }}</td>
+                                <td>{{ pengumuman.tanggal_upload }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{% url 'download_file_pengumuman' pengumuman.id %}" class="btn btn-primary mb-1" target="_blank">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                          
+                            {% empty %}
+                            <tr>
+                                <td colspan="4">Tidak ada pengumuman tersedia.</td>
+                            </tr>
+                            {% endfor %}-->
+                        </tbody>
+                    </table>
+                </div>            
+                <!-------------------- END TABLE BUS PLANT 1 -------------------->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+      
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+471

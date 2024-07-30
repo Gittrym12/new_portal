@@ -1,0 +1,943 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">
+              <!--
+              <p id="currentDate" class=h3></p>
+              <script>
+                var currentDate = new Date();
+                document.getElementById("currentDate").innerHTML = currentDate.toDateString();
+              </script>  
+              -->            
+            </div>
+          </div>
+          
+            <!--
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-primary d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Default</li>
+                </ol>
+              </nav>
+            </div>
+            -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <!--  HEADER PAGE & BANNER -->
+      <div class="row pt-2">
+        <div class="col-md-6 rounded-left">
+            <div class="card-body text-center">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner rounded border-default">
+                        <div class="carousel-item active">
+                            <div id="modalImage1" data-toggle="modal" data-target="#exampleModal1">
+                                <img class="d-block w-100" src="/static/assets/img/theme/Hotline.jpg" alt="First slide">
+                            </div>
+                            <!-- Modal 1 -->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <img src="/static/assets/img/theme/Hotline.jpg" class="img-fluid" alt="Image preview">>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div id="modalImage2" data-toggle="modal" data-target="#exampleModal2">
+                                <img class="d-block w-100" src="/static/assets/img/theme/qcc2.jpg" alt="Second slide">
+                            </div>
+                            <!-- Modal 2 -->
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <img src="/static/assets/img/theme/qcc2.jpg" class="img-fluid" alt="Image preview">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block background-capt-carousel">
+                                <h4 class="h4-capt-carousel-depan">Training Qcc</h4>
+                                <p>Training Qcc di bulan April bertempat di learning center.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div id="modalImage3" data-toggle="modal" data-target="#exampleModal3">
+                                <img class="d-block w-100" src="/static/assets/img/theme/safetyriding.jpg" alt="Third slide">
+                            </div>
+                            <!-- Modal 3 -->
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <img src="/static/assets/img/theme/safetyriding.jpg" class="img-fluid" alt="Image preview">>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block background-capt-carousel">
+                                <h4 class="h4-capt-carousel-depan">Training Safety Riding</h4>
+                                <p>Training Safety Riding bulan Februari bertempat di parkiran bus YPMI Plant 1.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 rounded-right text-center">
+            <div class="card-body">
+                <div class="container ">
+                  <div class="col-md-10 mx-auto ">
+                    <h1 class="h1-di-halaman-depan1 text-center ml-4 mt-4">HADIR</h1>
+                    <h2 class="h2home">
+                      <span class="h-letter">H</span>umanis
+                      <span class="h-letter">A</span>daptif
+                      <span class="h-letter">D</span>edikatif
+                      <span class="h-letter">I</span>nisiatif
+                      <span class="h-letter">R</span>esponsif
+                    </h2>
+                  </div>
+                </div>
+
+                <!--
+                <div class="container ">
+                  <div class="col-md-10 mx-auto ">
+                    <h1 class="h1-di-halaman-depan1 text-left text-dark ml-4 mt--4">H <span class="h2">Humanis</span></h1>
+                    <h1 class="h1-di-halaman-depan1 text-left text-dark ml-4 mt--4">A <span class="h2">Adaptif</span></h1>
+                    <h1 class="h1-di-halaman-depan1 text-left text-dark ml-4 mt--4">D <span class="h2">Dedikatif</span></h1>
+                    <h1 class="h1-di-halaman-depan1 text-left text-dark ml-4 mt--4">I <span class="h2">Inisiatif</span></h1>
+                    <h1 class="h1-di-halaman-depan1 text-left text-dark ml-4 mt--4">R <span class="h2">Responsif</span></h1>
+                  </div>
+                </div>
+                -->
+                <hr class="mt-1" style="max-width: 320px;">
+                <hr class="mt--3" style="max-width: 250px;">
+                <div class="row">
+                    <img class="d-block w-100 mt-5" src="/static/assets/img/theme/5-Section-HRD.jpg" >
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--  END HEADER PAGE & BANNER -->
+    
+      <!--  GRAFIK KEHADIRAN -->
+      <div class="row">
+        <div class="col-sm-12 mt-3 pt-3">
+          <div class="card card-stats pb-3" >
+            <h2 class="text-center mt-4">INFORMASI KEHADIRAN:</h2>
+            <div class="card-body text-center">
+              <img class="d-block w-100" data-toggle="modal" data-target="#exampleModal" src="/static/assets/img/theme/grafik-kehadiran-2023-april.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <img src="/static/assets/img/theme/grafik-kehadiran-2023-april.jpg" class="img-fluid mt--5" alt="Image preview">
+          </div>
+        </div>
+      </div>
+      <!--  END GRAFIK KEHADIRAN -->
+    
+      
+      
+      
+    <!--
+      <div class="row">
+        
+          <div class="col-xl-8">
+            <div class="card bg-default">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h6 class="text-light text-uppercase ls-1 mb-1">GRAFIK KEHADIRAN</h6>
+                    <h5 class="h3 text-white mb-0">2023</h5>
+                  </div>
+                  <div class="col">
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                          <span class="d-none d-md-block">Month</span>
+                          <span class="d-md-none">M</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Week</span>
+                          <span class="d-md-none">W</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                Chart 
+                <div class="chart">
+                 Chart wrapper 
+                  <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h4 class="text-uppercase text-muted ls-1 mb-1">Grafik Kehadiran</h4>
+                    <h5 class="h3 mb-0">2023</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                
+                <div class="chart-sm">
+                  <canvas id="chart-bars" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+
+      
+      <!--
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-stats">
+            <div class="card-body text-left">
+              <h2>Informasi kegiatan yang akan di lakukan</h2>
+              <h4><a href="/">- FD</a></h4>
+              <h4><a href="/">- Medcheck</a></h4>
+              <h4><a href="/">- Meeting admin</a></h4>
+              <h4><a href="/">- Meeting GF/SPV</a></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-stats">
+            <div class="card-body text-left">
+              <h2>Dokumentasi kegiatan yang sudah dilakukan</h2>
+              <h4><a href="/">- Training</a></h4>
+              <h4><a href="/">- Pelepasan</a></h4>
+              <h4><a href="/">- kegiatan</a></h4>
+              <h4><a href="/">- Etc</a></h4>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      
+      
+      <!--  TABEL INFORMASI -->
+      <div class="row rounded-top mt-3 pt-3 text-center ">
+        <div class="col-sm-4 mx-auto">
+          <h2 class="text-center ">INFORMASI HARIAN:</h2>
+        </div>
+      </div>
+      <div class="row rounded">
+        <div class="col-sm-6" style="padding-top: 30px;">
+          <div class="card">
+            <div class="card-header bg-white">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h4 class="text-uppercase text-muted ls-1 mb-1 text-center text-black">Jadwal shuttle bus</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- Light table Jadwal shuttle bus -->
+              <div class="table-responsive">
+                <table class="table mb-3">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th class="text-center">Keberangkatan</th>
+                      <th>Plant 1</th>
+                      <th>Plant 2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">I</td>
+                      <td>08.00</td>
+                      <td>09.30</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">II</td>
+                      <td>10.00</td>
+                      <td>11.30</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">III</td>
+                      <td>13.00</td>
+                      <td>13.15</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">IV</td>
+                      <td>15.00</td>
+                      <td>16.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6" style="padding-top: 30px;">
+          <div class="card">
+            <div class="card-header bg-white">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h4 class="text-uppercase text-muted ls-1 mb-1 text-center text-dark">Jam pelayanan klinik</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- Light table Jam pelayanan klinik -->
+              <div class="table-responsive">
+                <table class="table ">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th>Keterangan</th>
+                      <th>Jam</th>
+                      <th>Hari</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dokter</td>
+                      <td>09.30 - 12.30</td>
+                      <td>Senin - Jumat</td>
+                    </tr>
+                    <tr>
+                      <td>Perawat</td>
+                      <td>24 jam</td>
+                      <td>Senin - Jumat</td>
+                    </tr>
+                    <tr>
+                      <td>Telekonsul</td>
+                      <td>24 jam</td>
+                      <td>Senin - Jumat</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="row">
+                <div class="col-sm-5">
+                  <h5 class="text-teal-1 ml-4 pt-3">Informasi lain:</h5>
+                </div>
+                <div class="col-sm-7">
+                  <h5 class="text-teal-1 pt-3 text-left ml--5">- Ext Klinik      : 760 <br>- Telekonsul   : 0857 1583 9834 </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- STATRT MENU MAKAN HARI INI
+        <div class="col-sm-12" style="padding-top: 30px;">
+          <div class="card">
+            <div class="card-header bg-white">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h4 class="text-uppercase text-muted ls-1 mb-1 text-center text-black">Menu hari ini</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card-body font-weight-bold">
+              
+              <div class="table-responsive">
+                <table class="table ">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th >Tanggal</th>
+                      <th >Breakfast</th>
+                      <th >Shift I</th>
+                      <th >Shift II</th>
+                      <th >Shift III</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr >
+                      <td>Senin, 12 Juni</td>
+                      <td >Paket Nasi Kebuli</td>
+                      <td >Ayam goreng serundeng </td>
+                      <td >Ayam goreng tepung</td>
+                      <td >Ayam bakar padang</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td >Roti almond keju</td>
+                      <td >Cumi Crispy</td>
+                      <td >Cumi Lada hitam</td>
+                      <td >Cumi bumbu bali</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      END MENU MAKAN HARI INI-->
+
+                <!--
+                {% for menu_item in menu_items|slice:":4" %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ menu_item.shift_i }}</td>
+                  <td>{{ menu_item.shift_ii }}</td>
+                  <td>{{ menu_item.shift_iii }}</td>
+                </tr>
+                {% endfor %}-->
+
+        <!--
+        <div class="col-md-4 rounded-right">
+          <div class="row" style="padding-top: 70px;">
+            <div class="col-sm-12">
+              <div class="card card-stats bg-teal-1">
+                <div class="card-body text-center">
+                  <h2 class="text-white"><a href="/">Menu hari ini</a></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-sm-12">
+              <div class="card card-stats bg-teal-1">
+                <div class="card-body text-center">
+                  <h2 class="text-white"><a href="/">Quote of the day</a></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card card-stats bg-teal-1">
+                <div class="card-body text-center">
+                  <h2 class="text-white"><a href="/">Reminder penyerahan dokumen</a></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <!-- END TABEL INFORMASI -->
+
+      <div class="row rounded-top mt-3 pt-3 text-center ">
+        <div class="col-sm-12 pb-3 mb-3 mx-auto">
+          <h2 class="text-center ">KATA BIJAK HARI INI:</h2>
+        </div>
+      </div>
+      <div class="row rounded-bottom " >
+        <div class="col-sm-12  mx-auto rounded-left">
+          <div class="card card-stats bg-white">
+            <div class="card-body text-center">
+                <h3 style="font-style: italic;" class="mt-3">"Ada tiga konstanta dalam hidup, perubahan, pilihan dan prinsip."</h3>
+                <h5>- Stephen Covey</h5>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row rounded-top  text-center ">
+        <div class="col-sm-4 mx-auto mt-3 pt-3">
+          <h2 class="text-center  ">KEGIATAN:</h2>
+        </div>
+      </div>
+      <div class="row rounded-bottom " >
+        <div class="col-sm-6  rounded-left mt-3 pt-3">
+          <div class="card card-stats bg-white">
+            <div class="card-body text-center">
+              <div id="myCarousel1" class="carousel slide" data-ride="carousel" style="padding-left: 30px; padding-right: 20px">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    {% for kegiatan in kegiatan_list %}
+                        <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                    {% endfor %}
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner text-center">
+                  <h2 class="text-center">Jadwal kegiatan</h2>
+                  <div class="carousel-item active pr-4 pl-4">
+                    <div class="text-event-gambar text-center"><img src="/static/assets/img/theme/daftarhadir1.png" style="width: 94%;" alt=""></div>
+                  </div>
+                  <div class="carousel-item pl-4 pr-4">
+                    <div class="text-event-gambar text-center"><img src="/static/assets/img/theme/daftarhadir1.png" style="width: 94%;" alt=""></div>
+                  </div>
+                  <div class="carousel-item pl-4 pr-4">
+                    <div class="text-event-gambar text-center"><img src="/static/assets/img/theme/daftarhadir1.png" style="width: 94%;" alt=""></div>
+                  </div>
+                </div>
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev pr-4" href="#myCarousel1" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control-next pl-4" href="#myCarousel1" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6  rounded-right mt-3 pt-3">
+          <div class="card card-stats bg-white">
+            <div class="card-body text-center">
+              <div id="myCarousel2" class="carousel slide" data-ride="carousel" style="padding-left: 30px; padding-right: 20px">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel2" data-slide-to="1"></li>
+                  <li data-target="#myCarousel2" data-slide-to="2"></li>
+                </ol>   
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner text-center">
+                  <h2 class="text-center">Dokumentasi kegiatan</h2>
+                  <div class="carousel-item active pr-4 pl-4">
+                    <div class="text-event-gambar text-left"><img src="/static/assets/img/theme/sachocup2.JPG" style="width: 100%;" alt=""></div>
+                    <p class="text-event-judul text-left">Sacho Cup</p>
+                    <p class="text-event text-left">Pengalaman saya dengan perusahaan web ini sangat memuaskan. Mereka sangat responsif terhadap kebutuhan dan permintaan saya</p>
+                    <p class="text-event-author text-left">Puspa Apriyanti<b>, Training and Development</b></p>
+                    <p class="text-event text-left"><a class="btn bg-default text-white" style="padding-bottom: 10px;" href="#" role="button">See more</a></p>
+                  </div>
+                  <div class="carousel-item pl-4 pr-4">
+                    <div class="text-event-gambar text-left"><img src="/static/assets/img/theme/aniv.JPG" style="width: 100%;" alt=""></div>
+                    <p class="text-event-judul text-left">Judul artikel</p>
+                    <p class="text-event text-left">Pengalaman saya dengan perusahaan web ini sangat memuaskan. Mereka sangat responsif terhadap kebutuhan dan permintaan saya.</p>
+                    <p class="text-event-author text-left">Puspa Apriyanti<b>, Training and Development</b></p>
+                    <p class="text-event text-left"><a class="btn bg-default text-white" style="padding-bottom: 10px;" href="#" role="button">See more</a></p>
+                  </div>
+                  <div class="carousel-item pl-4 pr-4">
+                    <div class="text-event-gambar text-left"><img src="/static/assets/img/theme/levelup.JPG" style="width: 100%;" alt=""></div>
+                    <p class="text-event-judul text-left">Judul artikel</p>
+                    <p class="text-event text-left">Pengalaman saya dengan perusahaan web ini sangat memuaskan. Mereka sangat responsif terhadap kebutuhan dan permintaan saya.</p>
+                    <p class="text-event-author text-left">Puspa Apriyanti<b>, Training and Development</b></p>
+                    <p class="text-event text-left"><a class="btn bg-default text-white" style="padding-bottom: 10px;" href="#" role="button">See more</a></p>
+                  </div>
+                </div>
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" style="padding-right: 20px;" href="#myCarousel2" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control-next" style="padding-left: 30px;" href="#myCarousel2" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>   
+      </div>
+
+      <!--
+      <div class="row" style="padding-top: 30px;">
+        <div class="col-md-6 mx-auto mt-3 pt-3 mb-3 pb-3">
+          <h2 class="text-center">TESTIMONIALS:</h2>
+          <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+            -- Carousel indicators --
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel3" data-slide-to="1"></li>
+              <li data-target="#myCarousel3" data-slide-to="2"></li>
+            </ol>   
+            -- Wrapper for carousel items --
+            <div class="carousel-inner text-center">
+              <div class="carousel-item active">
+                <div class="img-box"><img src="/static/assets/img/brand/man.png"  alt=""></div>
+                <p class="testimonial">Saya sangat terkesan dengan desain modern dan responsif dari web ini. Tampilan yang intuitif membuat navigasi menjadi mudah dan menyenangkan. Selain itu, konten yang disajikan juga sangat informatif dan berguna.</p>
+                <p class="overview"><b>Muhammad Husni</b>, Web Developer</p>
+              </div>
+              <div class="carousel-item">
+                <div class="img-box"><img src="/static/assets/img/brand/man.png" alt=""></div>
+                <p class="testimonial">Web ini merupakan tempat yang sangat bagus untuk menemukan informasi terkini dalam bidang teknologi. Desainnya yang sederhana namun elegan membuatnya mudah untuk mencari konten yang saya minati.</p>
+                <p class="overview"><b>Boby Adhi</b>, Training and Development</p>
+              </div>
+              <div class="carousel-item">
+                <div class="img-box"><img src="/static/assets/img/brand/man.png" alt=""></div>
+                <p class="testimonial">Pengalaman saya dengan perusahaan web ini sangat memuaskan. Mereka sangat responsif terhadap kebutuhan dan permintaan saya.</p>
+                <p class="overview"><b>Puspa Apriyanti</b>, Training and Development</p>
+              </div>
+            </div>
+            -- Carousel controls --
+            <a class="carousel-control-prev" href="#myCarousel3" data-slide="prev">
+              <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel3" data-slide="next">
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      -->
+       
+      <!-- START FAQ SECTION -->
+      <!--
+      <div class="row" style="padding-top: 30px;">
+        
+        <div class="col-md-10 mx-auto mt-3 pt-3 mb-3 pb-3">
+          <h2 class="text-center pb-5">Frequently Asked Questions:</h2>
+          <div class="accordion" id="faqAccordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Question 1
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div>
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Question 2
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                <div class="card-body">
+                  Answer 2
+                </div>
+              </div>
+            </div>
+            -- Add more FAQ items here --
+          </div>
+        </div>
+        -->
+      </div>
+      <!-- END FAQ SECTION -->
+
+      <!--
+      <div class="row">
+        <div class="col-xl-3 col-md-4 bg-white" style="height: 250px;">
+          <div class="card card-stats">
+
+             Card body 
+            <div class="card-body text-center">
+              <div class="row">
+                <div class="col">
+                  <h2 class="card-title text-uppercase text-muted mb-0">OVERVIEW</h2>
+                  
+                  <span class="h2 font-weight-bold mb-0">350,897</span>
+                  
+                </div>  
+              </div>
+              <div class="row">
+                <div class="col-auto mt-2">
+                  
+                  <img src="/static/assets/img/brand/online-recruitment.png" alt="Deskripsi Gambar" style="max-width:50%; height:50%;">
+                  
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-auto mt-2">
+                  
+                  <img src="/static/assets/img/brand/online-recruitment.png" alt="Deskripsi Gambar" style="max-width:50%; height:50%;">
+                  
+                  
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      
+      <!--
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Page visits</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+               Projects table 
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Page name</th>
+                    <th scope="col">Visitors</th>
+                    <th scope="col">Unique users</th>
+                    <th scope="col">Bounce rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      /argon/
+                    </th>
+                    <td>
+                      4,569
+                    </td>
+                    <td>
+                      340
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/index.html
+                    </th>
+                    <td>
+                      3,985
+                    </td>
+                    <td>
+                      319
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/charts.html
+                    </th>
+                    <td>
+                      3,513
+                    </td>
+                    <td>
+                      294
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/tables.html
+                    </th>
+                    <td>
+                      2,050
+                    </td>
+                    <td>
+                      147
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/profile.html
+                    </th>
+                    <td>
+                      1,795
+                    </td>
+                    <td>
+                      190
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Social traffic</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+               Projects table 
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Referral</th>
+                    <th scope="col">Visitors</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      Facebook
+                    </th>
+                    <td>
+                      1,480
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">60%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Facebook
+                    </th>
+                    <td>
+                      5,480
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">70%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Google
+                    </th>
+                    <td>
+                      4,807
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">80%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Instagram
+                    </th>
+                    <td>
+                      3,678
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">75%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      twitter
+                    </th>
+                    <td>
+                      2,645
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">30%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>-->
+
+      
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

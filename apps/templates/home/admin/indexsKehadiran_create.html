@@ -1,0 +1,102 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1>ADD Indeks Kehadiran</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="Bulan">Bulan:</label>
+                    <select class="form-control" id="Bulan" name="Bulan" required>
+                        <option value="Januari">Januari</option>
+                        <option value="Februari">Februari</option>
+                        <option value="Maret">Maret</option>
+                        <option value="April">April</option>
+                        <option value="Mei">Mei</option>
+                        <option value="Juni">Juni</option>
+                        <option value="Juli">Juli</option>
+                        <option value="Agustus">Agustus</option>
+                        <option value="September">September</option>
+                        <option value="Oktober">Oktober</option>
+                        <option value="November">November</option>
+                        <option value="Desember">Desember</option>
+                    </select>
+                </div>
+              
+                <div class="form-group">
+                  <label for="divisi">division:</label>
+                  <select class="form-control" id="divisi" name="divisi" required>
+                      <option value="YPMI">YPMI</option>
+                      <option value="PROD_PLANNING_DELIVERY">PROD PLANNING & DELIVERY</option>
+                      <option value="QUALITY_ASSURANCE">QUALITY ASSURANCE</option>
+                      <option value="STEEL_PRODUCTION">STEEL PRODUCTION</option>
+                      <option value="STEEL_PRODUCTION_ENGINEERING">STEEL PRODUCTION ENGINEERING</option>
+                      <option value="MAINTENANCE">MAINTENANCE</option>
+                      <option value="INVENTORY_CONTROL">INVENTORY CONTROL</option>
+                      <option value="FINANCE">FINANCE</option>
+                      <option value="PROD_STRATEGY">PROD. STRATEGY</option>
+                      <option value="GENERAL_AFFAIRS">GENERAL AFFAIRS</option>
+                      <option value="HUMAN_RESOURCES_DEPARTMENT">HUMAN RESOURCES DEPARTMENT</option>
+                      <option value="ALUMINIUM_PRODUCTION">ALUMINIUM PRODUCTION</option>
+                      <option value="BUSINESS_MANUFACTURING_DEVELOPMENT">BUSINESS & MANUFACTURING DEVELOPMENT</option>
+                      <option value="ALUMINIUM_PRODUCTION_ENGINEERING">ALUMINIUM PRODUCTION ENGINEERING</option>
+                  </select>
+                  
+                </div>
+                <div class="form-group">
+                  <label for="image">Image:</label>
+                  <input type="file" class="form-control-file" id="image" name="image" required>
+                </div>
+                <div class="form-group">
+                  <label for="tanggal">Tanggal Upload:</label>
+                  <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                </div>
+                <div class="form-group">
+                  <label for="keterangan">keterangan Upload:</label>
+                  <input type="text" class="form-control" id="keterangan" name="keterangan">
+                </div>
+                
+            
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>                          
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

@@ -1,0 +1,81 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1>Jadwal Bus</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="titikStart">Titik Start:</label>
+                  <input type="text" class="form-control" id="titikStart" name="titikStart" required>
+                </div>
+                <div class="form-group">
+                  <label for="plant">plant:</label>
+                  <select class="form-control" id="plant" name="plant" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="via">via:</label>
+                  <input type="text" class="form-control" id="via" name="via">
+                </div>
+                <div class="form-group">
+                  <label for="seat">seat:</label>
+                  <input type="number" class="form-control" id="seat" name="seat">
+                </div>
+                <div class="form-group">
+                  <label for="shift1">shift1:</label>
+                  <input type="text" class="form-control" id="shift1" name="shift1">
+                </div>
+                <div class="form-group">
+                  <label for="shift2">shift2:</label>
+                  <input type="text" class="form-control" id="shift2" name="shift2">
+                </div>
+                <div class="form-group">
+                  <label for="shift3">shift3:</label>
+                  <input type="text" class="form-control" id="shift3" name="shift3">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>                          
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

@@ -1,0 +1,71 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+                <h1>List Ulang Tahun Hari ini</h1>
+                <table class="table">
+                  <thead class="table-head-bg">
+                    <tr>
+                      <th>No</th>
+                      <th>NIK</th>
+                      <th>Nama</th>
+                      <th>Bagian</th>
+                      <th>Jabatan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for entry in data %}
+                      <tr>
+                        <td>{{ forloop.counter0|add:1 }}</td>
+                        <td>{{ entry.NIK }}</td>
+                        <td>{{ entry.Name }}</td>
+                        <td>{{ entry.Section }}</td>
+                        <td>{{ entry.Occupation }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                             
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

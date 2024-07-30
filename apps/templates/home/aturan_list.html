@@ -1,0 +1,100 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Aturan YPMI {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="header bg-white pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row py-4">
+        <div class="col-lg-12" style="text-align: right;">           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6 bg-white">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="card card-stats">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+            
+              <h1 class="header_page_label">ATURAN HRD</h1>
+              {% if user.is_authenticated %}
+              <!-- Additional Features (Edit and Filter) -->
+              <div class="d-flex my-3">
+                <a href="{% url 'aturan_create' %}" class="btn btn-success">
+                  <i class="fas fa-edit"></i> Create Aturan
+                </a>
+              </div>
+              <!-- End Additional Features -->
+              {% endif %}
+              <div class="table-responsive">
+            
+                <table class="table">
+                    <thead class="table-head-bg">
+                        <tr>
+                            
+                            <th>Judul</th>
+                            <th>Lihat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for aturan in aturans %}
+                            <tr>
+                                
+                                <td>{{ aturan.title }}</td>
+                                {% if user.is_authenticated %}
+                                <td>
+                                  <div class="d-flex">
+                                    <a href="{% url 'aturan_download' aturan.pk %}" class="btn btn-primary mb-1">
+                                      <i class="fas fa-download"></i>
+                                    </a>
+                                    <a href="{% url 'aturan_edit' aturan.pk %}" class="btn btn-info mb-1">
+                                      <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form method="post" action="{% url 'aturan_delete' aturan.pk %}">
+                                      {% csrf_token %}
+                                      <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                      </button>
+                                    </form>
+                                  </div>
+                                </td>
+                                {% else %}
+                                <td>
+                                  <div class="d-flex">
+                                    <a href="{% url 'aturan_download' aturan.pk %}" class="btn btn-primary mb-1">
+                                      <i class="fas fa-download"></i>
+                                    </a>
+                                  </div>
+                                </td>
+                                {% endif %}
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="5">No rules available.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+</div>
+
+{% include "includes/footer.html" %}
+
+{% endblock content %}

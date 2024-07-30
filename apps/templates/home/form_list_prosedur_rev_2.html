@@ -1,0 +1,399 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto" style="margin-bottom: 200px;">
+          <div class="card card-stats">
+            <div class="card-body">
+              <!-- Light table -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-Recruitment-tab" data-toggle="pill" data-target="#pills-Recruitment" type="button" role="tab" aria-controls="pills-Recruitment" aria-selected="true">Recruitment & Selection</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Training-tab" data-toggle="pill" data-target="#pills-Training" type="button" role="tab" aria-controls="pills-Training" aria-selected="false">Training & Development</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Medical-tab" data-toggle="pill" data-target="#pills-Medical" type="button" role="tab" aria-controls="pills-Medical" aria-selected="false">Medical & Welfare</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Legal-tab" data-toggle="pill" data-target="#pills-Legal" type="button" role="tab" aria-controls="pills-Legal" aria-selected="false">Legal</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-Payroll-tab" data-toggle="pill" data-target="#pills-Payroll" type="button" role="tab" aria-controls="pills-Payroll" aria-selected="false">Payroll & Administration</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+
+                <!-- Light table Recruitment -->
+                <div class="tab-pane fade show active" id="pills-Recruitment" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="table-responsive">
+                    <h1 class="table-label">List Prosedur dan Ketentuan Section Recruitment</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>NO</th>
+                          <th>Nama Prosedur</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Recruitment</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Recruitment1" href="/static/assets/Prosedur/Ready to Upload/Recruitment - Flow Recruitment.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </a>
+                  </div>                  
+                </div>
+
+                <!-- Light table Training -->
+                <div class="tab-pane fade" id="pills-Training" role="tabpanel" aria-labelledby="pills-Training-tab">
+                  <div class="table-responsive">
+                    <h1 class="table-label">List Prosedur dan Ketentuan Section Training</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>NO</th>
+                          <th>Nama Prosedur</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Pengajuan Trainer</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Training1" href="/static/assets/Prosedur/Ready to Upload/Training - Flow Pengajuan Trainer.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>2</td>
+                          <td>Pengajuan Interpreter</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Training2" href="/static/assets/Prosedur/Ready to Upload/Training - Flow Pengajuan Interpreter.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>3</td>
+                          <td>Karyawan Pensiun</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Training3" href="/static/assets/Prosedur/Ready to Upload/Training - Flow Karyawan Pensiun.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>4</td>
+                          <td>Seleksi Promosi</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Training4" href="/static/assets/Prosedur/Ready to Upload/Training - Flow Seleksi Promosi.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>                  
+                </div>
+
+                <!-- Light table Medical -->
+                <div class="tab-pane fade" id="pills-Medical" role="tabpanel" aria-labelledby="pills-Medical-tab">
+                  <div class="table-responsive">
+                    <h1 class="table-label"+>List Prosedur dan Ketentuan Section Medical & Welfare</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>NO</th>
+                          <th>Nama Prosedur</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Pendaftaran BPJS Kesehatan</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Medical1" href="/static/assets/Prosedur/Ready to Upload/Medical - Flow Pendaftaran BPJS Kesehatan.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>2</td>
+                          <td>Pengajuan Klaim Penggantian Biaya Pengobatan</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Medical2" href="/static/assets/Prosedur/Ready to Upload/Medical - Flow Pengajuan Klaim Penggantian Biaya Pengobatan.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>3</td>
+                          <td>Pengajuan Sumbangan</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Medical3" href="/static/assets/Prosedur/Ready to Upload/Medical - Flow Pengajuan Sumbahan.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>4</td>
+                          <td>Pengajuan Update Data Terbaru Karyawan</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Medical4" href="/static/assets/Prosedur/Ready to Upload/Medical - Flow Pengajuan Update Data Terbaru Karyawan.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>                  
+                </div>
+
+                <!-- Light table Legal -->
+                <div class="tab-pane fade" id="pills-Legal" role="tabpanel" aria-labelledby="pills-Legal-tab">
+                  <div class="table-responsive">
+                    <h1 class="table-label">List Prosedur dan Ketentuan Section Legal</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>NO</th>
+                          <th>Nama Prosedur</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Flow Pengajuan Pembuatan Agreement Direct-Indirect-Non Fixed Asset</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Legal" href="/static/assets/Prosedur/Ready to Upload/Legal - Flow Pengajuan Pembuatan Agreement Direct-Indirect-Non Fixed Asset.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>2</td>
+                          <td>Flow Pengajuan Pembuatan Agreement Fixed Asset</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Legal2" href="/static/assets/Prosedur/Ready to Upload/Legal - Flow Pengajuan Pembuatan Agreement Fixed Asset.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>3</td>
+                          <td>Flow Pengajuan Pembuatan Paspor Bagi Pekerja Yang Ditugaskan ke Luar Negeri</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Legal3" href="/static/assets/Prosedur/Ready to Upload/Legal - Flow Pengajuan Pembuatan Paspor Bagi Pekerja Yang Ditugaskan ke Luar Negeri.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>4</td>
+                          <td>Flow Pengajuan Pembuatan Visa Bagi Pekerja Yang Ditugaskan ke Luar Negeri</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Legal4" href="/static/assets/Prosedur/Ready to Upload/Legal - Flow Pengajuan Pembuatan Visa Bagi Pekerja Yang Ditugaskan ke Luar Negeri.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>5</td>
+                          <td>Flow Pengajuan Pembuatan Visa Bagi Tamu WNA yang datang ke Perusahaan</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Legal5" href="/static/assets/Prosedur/Ready to Upload/Legal - Flow Pengajuan Pembuatan Visa Bagi Tamu WNA yang datang ke Perusahaan.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>                  
+                </div>
+
+                <!-- Light table Payroll -->
+                <div class="tab-pane fade" id="pills-Payroll" role="tabpanel" aria-labelledby="pills-Payroll-tab">
+                  <div class="table-responsive">
+                    <h1 class="table-label">List Prosedur dan Ketentuan Section Payroll & Administration</h1>
+                    <table class="table">
+                      <thead class="table-head-bg">
+                        <tr>
+                          <th>NO</th>
+                          <th>Nama Prosedur</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Payroll Process</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Payroll1" href="/static/assets/Prosedur/Ready to Upload/Payroll - Flow Payroll Process.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>2</td>
+                          <td>Pengajuan Keluhan Gaji</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Payroll2" href="/static/assets/Prosedur/Ready to Upload/Payroll - Flow Pengajuan Keluhan Gaji.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>3</td>
+                          <td>Pengajuan Pelaksanaan Kerja Lembur (Overtime)</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Payroll3" href="/static/assets/Prosedur/Ready to Upload/Payroll - Flow Pengajuan Pelaksanaan Kerja Lembur (Overtime).pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>4</td>
+                          <td>Pengajuan Uang Makan Dinas Luar</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Payroll4" href="/static/assets/Prosedur/Ready to Upload/Payroll - Flow Pengajuan Uang Makan Dinas Luar.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>5</td>
+                          <td>Pencatatan Kehadiran PT YPMI</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Payroll5" href="/static/assets/Prosedur/Ready to Upload/Attendance - Flow Pencatatan Kehadiran PT YPMI.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>6</td>
+                          <td>Permohonan Pembuatan ID Card</td>
+                          <td>
+                            <div class="d-flex">
+                              <a download="Payroll6" href="/static/assets/Prosedur/Ready to Upload/Attendance - Flow Permohonan Pembuatan ID Card.pdf" class="btn btn-primary mb-1">
+                                <i class="fas fa-download"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        
+
+
+                      </tbody>
+                    </table>
+                  </div>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+  
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

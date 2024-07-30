@@ -1,0 +1,22 @@
+# Ignore virtual environment directory
+venv/
+
+# Ignore Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Ignore all PDF files
+*.pdf
+
+# Ignore common video file formats
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.wmv
+*.flv
+*.webm

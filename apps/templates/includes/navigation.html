@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow p-3 mb-5 bg-white rounded">
+  <a class="navbar-brand" href="#">
+      <img src="/static/assets/img/brand/hrdportal.png" width="200" class="d-inline-block align-top" alt="Brand Image">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav ml-auto"> <!-- Use ml-auto to move items to the right -->
+         <!-- Navbar items on the left -->
+         <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Beranda <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'timKami' %}">Tim Kami</a>
+          </li>
+          <!-- Navbar items on the right -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+                 Informasi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'pengumuman_list' %}">Pengumuman HRD</a>
+                  <a class="dropdown-item" href="{% url 'indeks_kehadiran' %}">Informasi Kehadiran</a>
+                  <a class="dropdown-item" href="{% url 'jadwalTraining' %}">Jadwal Training</a>
+                  <a class="dropdown-item" href="{% url 'jadwal_bus_list' %}">Jadwal Bus Perusahaan</a>
+                  <a class="dropdown-item" href="{% url 'menuKantin' %}">Menu Kantin</a>
+                  <a class="dropdown-item" href="{% url 'satgasPPKS' %}">Komite</a>
+                  <a class="dropdown-item" href="{% url 'sachoocup' %}">Sachoo Cup</a>
+              </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'form_list_prosedur' %}">Prosedur</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'aturan_list' %}">Aturan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'form_list' %}">Formulir</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="{% url 'kegiatan' %}">Kegiatan</a>
+          </li>
+		  <!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+               Link <span>Portal</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://yps0010/ESS_YPMI_NEW/static/login.html" target="_blank">ESS</a>
+                <a class="dropdown-item" href="http://yvs002/portal/" target="_blank">Portal YPMI</a>   
+            </div>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'kontak' %}">Kontak</a>
+          </li>
+      </ul>
+
+      <form method="get" action="{% url 'search_results' %}" class="form-inline my-0 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Type to search" aria-label="Search" id="searchInput" name="q" value="{{ query }}">
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+
+      {% if user.is_authenticated %}
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-primary" href="#" role="button" data-toggle="dropdown"
+             aria-expanded="false">
+              Welcome, {{ user.username }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+          </ul>
+      </li>
+      {% endif %}
+  </div>
+
+</nav>
+

@@ -1,0 +1,153 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Beranda {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <!--  HEADER PAGE & BANNER -->
+      <div class="row pt-2 pb-5">
+        <div class="col-md-6 rounded-left">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="/static/assets/img/theme/kegiatan/Geometric_Sports_Competition_Table.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="/static/assets/img/theme/kegiatan/Sports_Competition_Table.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="/static/assets/img/theme/pjpk.jpg" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 ">
+          <div class="card-body">
+            <img style="max-height: 440px;" class="d-block mt--4 ml-5" src="/static/assets/img/theme/shacho.jpg" alt="First slide">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <div id="modalImage1" data-toggle="modal" data-target="#exampleModal1">
+            <img class="d-block w-100 mt--3" src="/static/assets/img/theme/5-Section-HRD.jpg" alt="First slide">
+          </div>
+
+          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                  <img src="/static/assets/img/theme/5-Section-HRD.jpg" class="img-fluid"  alt="Image preview">>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+			<a href="{% url 'aturan_list' %}" target="blank">
+				<img class="d-block w-75 mt--3" src="/static/assets/img/theme/bryberycrp.jpg" alt="brybery">
+			</a>
+		</div>
+
+
+        <div class="col-md-2 ml--5" >
+          <div id="modalImage12" data-toggle="modal" data-target="#exampleModal12">
+            <img class="d-md-block w-100 mt--3" style="width: auto; height: 200px;" src="/static/assets/img/theme/visi-ypmi-shachoo-5-fix-bahasa-indonesia.jpg" alt="First slide">
+          </div>
+          <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel12" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-center"> <!-- Center the content horizontally -->
+                  <div class="d-flex justify-content-center align-items-center " >
+                    <!-- Center the image both horizontally and vertically -->
+                    <img src="/static/assets/img/theme/visi-ypmi-shachoo-5-fix-bahasa-indonesia.jpg" class="img-fluid mt--5" alt="Image preview" style="max-width: 100%; max-height: 90vh;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-1 ml--4 mt--2" >
+          <h1 class="text-center visitor-label" style="height: 30px; width: 150px; " >Statistik pengunjung</h1>
+          <div class=" border mt-2 text-left" style="height: 150px; width: 150px; ">
+              <h1 class="visitor-content mt-2">Today's: {{ today_count }}</h1>
+              <h1 class="visitor-content">Yesterday's: {{ yesterday_count }}</h1>
+              <h1 class="visitor-content">This Month's: {{ this_month_count }}</h1>
+              <h1 class="visitor-content">This Year's: {{ this_year_count }}</h1>
+              <h1 class="visitor-content">Total: {{ total_hits_count }}</h1>
+              <h1 class="visitor-content">Online Users: {{ online_users }}</h1>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="row mt-5">
+      <div class="container">
+        <div class="marquee" onmouseover="stopMarquee(this);" onmouseout="startMarquee(this);">
+          <div>
+            <span class="mx-2">Hotline Service Pelanggaran Kepatuhan : Telp. 1500206, WA. 08111501206 <span class="mx-4"></span> Hotline Service Pengaduan Tindak Kekerasan Seksual di Tempat Kerja : 0813 980 300 20</span>
+            <span class="mx-2">Hotline Service Pelanggaran Kepatuhan : Telp. 1500206, WA. 08111501206 <span class="mx-4"></span> Hotline Service Pengaduan Tindak Kekerasan Seksual di Tempat Kerja : 0813 980 300 20</span>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+    
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script>
+  function stopMarquee(element) {
+    element.querySelector('.marquee div').style.animationPlayState = 'paused';
+  }
+
+  function startMarquee(element) {
+    element.querySelector('.marquee div').style.animationPlayState = 'running';
+  }
+</script>
+
+
+{% endblock javascripts %}

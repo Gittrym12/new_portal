@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt--6 bg-white">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <h1>Edit Form</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="nama_form">Nama Form:</label>
+                  <input type="text" class="form-control" id="nama_form" name="nama_form" value="{{ form.nama_form.value }}" required placeholder="{{ form.nama_form.value }}">
+                </div>
+                <div class="form-group">
+                  <label for="fungsi_form">Fungsi Form:</label>
+                  <input type="text" class="form-control" id="fungsi_form" name="fungsi_form" value="{{ form.fungsi_form.value }}" required placeholder="{{ form.fungsi_form.value }}">
+                </div>
+                <div class="form-group">
+                  <label for="category_form">Category Form:</label>
+                  <select class="form-control" id="category_form" name="category_form" required>
+                    <option value="Legal" {% if form.category_form.value == 'Legal' %}selected{% endif %}>Legal</option>
+                    <option value="Training" {% if form.category_form.value == 'Training' %}selected{% endif %}>Training</option>
+                    <option value="Wellfare" {% if form.category_form.value == 'Wellfare' %}selected{% endif %}>Wellfare</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="file_upload">File Upload:</label>
+                  <input type="file" class="form-control-file" id="file_upload" name="file_upload" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>              
+            </div>            
+          </div>
+        </div>
+      </div>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+    
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

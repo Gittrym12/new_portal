@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              {% for data_kehadiran in data_list %}
+              <p>{{ data_kehadiran.Bulan }}, {{ data_kehadiran.divisi }}, {{ data_kehadiran.tanggal }}, {{ data_kehadiran.keterangan }}</p>
+              {% if data_kehadiran.image %}
+                  <img src="{{ data_kehadiran.image.url }}" alt="Data Kehadiran Image">
+              {% else %}
+                  <p>No image available</p>
+              {% endif %}
+              <a href="{% url 'update_datakehadiran' pk=data_kehadiran.pk %}">Edit</a>
+              <a href="{% url 'delete_datakehadiran' pk=data_kehadiran.pk %}">Delete</a>
+              {% endfor %}
+              
+              <!-- Other content goes here -->
+              
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+    </div>
+
+    {% include "includes/footer.html" %}
+
+{% endblock content %}

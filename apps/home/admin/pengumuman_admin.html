@@ -1,0 +1,93 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-white pb-6">
+      <div class="container-fluid">
+        
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12" style="text-align: right;">           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6 bg-white">
+      <row>
+        <div class="col-md-10 mx-auto">
+          <div class="card card-stats">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 mx-auto"><h1 class="table-label text-center">Pengumuman HRD</h1></div>
+                <!-------------------- TABLE BUS PLANT 1 -------------------->
+                <a href="{% url 'pengumuman_create' %}" class="btn btn-success mt-3">
+                  <i class="fas fa-edit"></i>
+                </a>
+
+                <div class="table-responsive">
+                    <h1 class="table-label">List Pengumuman</h1>
+                    <table class="table">
+                        <thead class="table-head-bg">  <!-- Define the 'table-head-bg' class in your CSS -->
+                            <tr>
+                                <th>No</th>
+                                <th>Judul</th>
+                                <th>Tanggal</th>
+                                <th>Lihat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pengumuman in pengumumans %}  <!-- Update 'forms' to 'pengumumans' to match your view -->
+                            <tr>
+                                <td>{{ pengumuman.no_pengumuman }}</td>
+                                <td>{{ pengumuman.nama_pengumuman }}</td>
+                                <td>{{ pengumuman.tanggal_upload }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{% url 'download_file_pengumuman' pengumuman.id %}" class="btn btn-primary mb-1" target="_blank">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                        <a href="{% url 'pengumuman_update' pengumuman.id %}" class="btn btn-info mb-1">
+                                          <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form method="post" action="{% url 'pengumuman_delete' pengumuman.id %}">
+                                          {% csrf_token %}
+                                          <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                          </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4">Tidak ada pengumuman tersedia.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>            
+                <!-------------------- END TABLE BUS PLANT 1 -------------------->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </row>
+      <a id="scrollToTop" href="#" title="Go to top"><i class="ni ni-bold-up"></i></a>
+      
+  
+    </div>
+    {% include "includes/footer.html" %}
+
+{% endblock content %}
+
+471

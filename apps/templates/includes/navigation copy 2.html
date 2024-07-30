@@ -1,0 +1,64 @@
+
+<nav class="navbar navbar-expand navbar-light bg-white">
+  <a class="navbar-brand" href="#">
+    <img src="/static/assets/img/brand/hrdportal4.png" width="200" alt="Deskripsi Gambar">
+  </a>
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Beranda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'timKami' %}">Tim Kami</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Informasi
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item active" href="{% url 'pengumumanHRD' %}">Pengumuman HRD</a></li>
+          <li><a class="dropdown-item" href="{% url 'indexsKehadiran' %}">Indeks Kehadiran</a></li>
+          <li><a class="dropdown-item" href="{% url 'jadwalTraining' %}">Jadwal Training</a></li>
+          <li><a class="dropdown-item" href="{% url 'jadwalBusJemputan' %}">Jadwal Bus Jemputan</a></li>
+          <li><a class="dropdown-item" href="{% url 'menuKantin' %}">Menu Kantin</a></li>
+          <li><a class="dropdown-item" href="{% url 'satgasPPKS' %}">Satgas PPKS</a></li>
+          <li><a class="dropdown-item" href="{% url 'pkb' %}">PKB</a></li>
+          <li><a class="dropdown-item" href="{% url 'dataUlangTahun' %}">Data Ulang Tahun Bulan Ini</a></li>
+          <li><a class="dropdown-item" href="{% url 'dataKehadiranTerbaik' %}">Data Kehadiran Terbaik</a></li>
+          <!-- New submenu dropdown -->
+          <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">Something else here</a>
+            <ul class="dropdown-menu">
+              <a class="dropdown-item" href="#">A</a>
+              <a class="dropdown-item" href="#">b</a>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'form_list_prosedur' %}">Prosedur</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'form_list' %}">Formulir</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'kegiatan' %}">Kegiatan</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle  text-italic text-primary" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Link <span>Portal</span> 
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="http://yps0010/ESS_YPMI_NEW/static/login.html" target="_blank">ESS</a>
+          <a class="dropdown-item" href="http://yvs002/portal/">Portal YPMI</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'kontak' %}">Kontak</a>
+      </li>
+    </ul>
+  </div>
+</nav>
